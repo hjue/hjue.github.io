@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Date: 2013-10-18 12:22Title: Google Analytics for iOSTags: Google Analytics , iOS
+GuideDeveloper Doc
+Liner error when trying to install new Google Analytics 3.0 betaAdd AdSupport.framework
+Initializin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2013/10/18/google-analytics-ios/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Date: 2013-10-18 12:22Title: Google Analytics for iOSTags: Google Analytics , iOS
+GuideDeveloper Doc
+Liner error when trying to install new Google Analytics 3.0 betaAdd AdSupport.framework
+Initializin">
+<meta property="og:updated_time" content="2013-10-18T05:28:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="Date: 2013-10-18 12:22Title: Google Analytics for iOSTags: Google Analytics , iOS
+GuideDeveloper Doc
+Liner error when trying to install new Google Analytics 3.0 betaAdd AdSupport.framework
+Initializin">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-google-analytics-ios" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/18/google-analytics-ios/" class="article-date">
+  <time datetime="2013-10-18T05:28:25.000Z" itemprop="datePublished">2013-10-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Date: 2013-10-18 12:22<br>Title: Google Analytics for iOS<br>Tags: Google Analytics , iOS</p>
+<h4 id="Guide"><a href="#Guide" class="headerlink" title="Guide"></a>Guide</h4><p><a href="https://developers.google.com/analytics/devguides/collection/android/v3/" target="_blank" rel="external">Developer Doc</a></p>
+<h4 id="Liner-error-when-trying-to-install-new-Google-Analytics-3-0-beta"><a href="#Liner-error-when-trying-to-install-new-Google-Analytics-3-0-beta" class="headerlink" title="Liner error when trying to install new Google Analytics 3.0 beta"></a>Liner error when trying to install new Google Analytics 3.0 beta</h4><pre><code>Add AdSupport.framework
+</code></pre><h4 id="Initializing-the-tracker"><a href="#Initializing-the-tracker" class="headerlink" title="Initializing the tracker"></a>Initializing the tracker</h4><pre><code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  // Optional: automatically send uncaught exceptions to Google Analytics.
+  [GAI sharedInstance].trackUncaughtExceptions = YES;
+
+  // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+  [GAI sharedInstance].dispatchInterval = 20;
+
+  // Optional: set Logger to VERBOSE for debug information.
+  [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+
+  // Initialize tracker.
+  id&lt;GAITracker&gt; tracker = [[GAI sharedInstance] trackerWithTrackingId:@&quot;UA-XXXX-Y&quot;];
+
+}
+</code></pre><h4 id="Manual-Screen-Tracking"><a href="#Manual-Screen-Tracking" class="headerlink" title="Manual Screen Tracking"></a>Manual Screen Tracking</h4><pre><code>#import &quot;GAI.h&quot;
+#import &quot;GAIDictionaryBuilder.h&quot;
+#import &quot;GAIFields.h&quot;
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    id&lt;GAITracker&gt; tracker = [[GAI sharedInstance] defaultTracker];
+
+    // This screen name value will remain set on the tracker and sent with
+    // hits until it is set to a new value or to nil.
+    [tracker set:kGAIScreenName value:@&quot;Home Screen&quot;];
+
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+}    
+</code></pre><h4 id="Event-Tracking"><a href="#Event-Tracking" class="headerlink" title="Event Tracking"></a>Event Tracking</h4><pre><code>id&lt;GAITracker&gt; tracker = [[GAI sharedInstance] defaultTracker];    
+[tracker send:[[GAIDictionaryBuilder createEventWithCategory:@&quot;UI_ACTION&quot;     // Event category (required)
+                                                      action:@&quot;BUTTON_PRESS&quot;  // Event action (required)
+                                                       label:@&quot;DOWNLOAD&quot;          // Event label
+                                                       value:[NSNumber numberWithInt:_slideID]] build]];    // Event value
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/10/18/google-analytics-ios/" data-id="ciulamfyt000354q2amanmvuc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/10/25/checklist/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/10/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2013/10/28/install-mavericks/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2013/10/25/checklist/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2013/10/18/google-analytics-ios/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
