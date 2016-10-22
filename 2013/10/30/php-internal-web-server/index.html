@@ -3,14 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Hexo</title>
+  <title>使用PHP内置的Web服务器 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="使用PHP内置的Web服务器PHP从5.4.0开始已经内置了Web服务器，开发测试环境再也不需要安装Apache/Nginx了，也不需要为每个项目配置站点，使用起来也非常简单，只需要在终端中进入你站点的根目录，执行以下的命令：
+$ php -S localhost:8000
+然后就可以在浏览器里访问了。
+如果你想指定站点的根目录,使用-t参数
+$ php -S localhost:8000 -t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用PHP内置的Web服务器">
+<meta property="og:url" content="http://yoursite.com/2013/10/30/php-internal-web-server/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用PHP内置的Web服务器PHP从5.4.0开始已经内置了Web服务器，开发测试环境再也不需要安装Apache/Nginx了，也不需要为每个项目配置站点，使用起来也非常简单，只需要在终端中进入你站点的根目录，执行以下的命令：
+$ php -S localhost:8000
+然后就可以在浏览器里访问了。
+如果你想指定站点的根目录,使用-t参数
+$ php -S localhost:8000 -t">
+<meta property="og:updated_time" content="2016-10-22T14:42:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="使用PHP内置的Web服务器">
+<meta name="twitter:description" content="使用PHP内置的Web服务器PHP从5.4.0开始已经内置了Web服务器，开发测试环境再也不需要安装Apache/Nginx了，也不需要为每个项目配置站点，使用起来也非常简单，只需要在终端中进入你站点的根目录，执行以下的命令：
+$ php -S localhost:8000
+然后就可以在浏览器里访问了。
+如果你想指定站点的根目录,使用-t参数
+$ php -S localhost:8000 -t">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,154 +75,70 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/10/12/hello-world/" class="archive-article-date">
-  <time datetime="2016-10-12T09:10:54.000Z" itemprop="datePublished">Oct 12</time>
+        <section id="main"><article id="post-php-internal-web-server" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/30/php-internal-web-server/" class="article-date">
+  <time datetime="2013-10-29T16:00:00.000Z" itemprop="datePublished">2013-10-30</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/12/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      使用PHP内置的Web服务器
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2014/08/11/justwriting/" class="archive-article-date">
-  <time datetime="2014-08-10T16:00:00.000Z" itemprop="datePublished">Aug 11</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/08/11/justwriting/">JustWritting 使用指南</a>
-    </h1>
-  
+        <h2 id="使用PHP内置的Web服务器"><a href="#使用PHP内置的Web服务器" class="headerlink" title="使用PHP内置的Web服务器"></a>使用PHP内置的Web服务器</h2><p>PHP从5.4.0开始已经内置了Web服务器，开发测试环境再也不需要安装Apache/Nginx了，也不需要为每个项目配置站点，使用起来也非常简单，只需要在终端中进入你站点的根目录，执行以下的命令：</p>
+<pre><code>$ php -S localhost:8000
+</code></pre><p>然后就可以在浏览器里访问了。</p>
+<p>如果你想指定站点的根目录,使用-t参数</p>
+<pre><code>$ php -S localhost:8000 -t /home/me/public_html
+</code></pre><p>如果需要使用本地测试域名在浏览器中访问，启动web服务器时使用本地ip(127.0.0.1)</p>
+<pre><code>$ php -S 127.0.0.1:8000
+</code></pre><p>我一直使用Codeigniter开发PHP项目，经过一个项目的实践，PHP内置的Web服务器完全胜任，以后开发环境就用他了。</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/10/30/php-internal-web-server/" data-id="ciulbdz1w00059qq2dtkksx19" class="article-share-link">Share</a>
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2013/10/30/php-internal-web-server/" class="archive-article-date">
-  <time datetime="2013-10-29T16:00:00.000Z" itemprop="datePublished">Oct 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/10/30/php-internal-web-server/">使用PHP内置的Web服务器</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2013/10/28/install-mavericks/" class="archive-article-date">
-  <time datetime="2013-10-27T16:00:00.000Z" itemprop="datePublished">Oct 28</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/10/28/install-mavericks/">制作可启动的Mavericks安装盘</a>
-    </h1>
+    <a href="/2014/08/11/justwriting/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JustWritting 使用指南
+        
+      </div>
+    </a>
   
+  
+    <a href="/2013/10/28/install-mavericks/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">制作可启动的Mavericks安装盘</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2013/10/19/checklist/" class="archive-article-date">
-  <time datetime="2013-10-18T16:00:00.000Z" itemprop="datePublished">Oct 19</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/10/19/checklist/">APP上线前测试确认清单</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2013/10/18/google-analytics-ios/" class="archive-article-date">
-  <time datetime="2013-10-18T04:22:00.000Z" itemprop="datePublished">Oct 18</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/10/18/google-analytics-ios/">Google Analytics for iOS</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
 </section>
         

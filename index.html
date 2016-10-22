@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -96,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/12/hello-world/" data-id="ciulbc5xg00099bq2fdnemvwi" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/10/12/hello-world/" data-id="ciulbdz1i00019qq29xn3ahkw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -180,10 +180,56 @@ svn ci -m &quot;submit code&quot;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/08/11/justwriting/" data-id="ciulbc5xp000b9bq2qfh33xu7" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2014/08/11/justwriting/" data-id="ciulbdz1p00039qq2558v0v3s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-php-internal-web-server" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/30/php-internal-web-server/" class="article-date">
+  <time datetime="2013-10-29T16:00:00.000Z" itemprop="datePublished">2013-10-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/30/php-internal-web-server/">使用PHP内置的Web服务器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用PHP内置的Web服务器"><a href="#使用PHP内置的Web服务器" class="headerlink" title="使用PHP内置的Web服务器"></a>使用PHP内置的Web服务器</h2><p>PHP从5.4.0开始已经内置了Web服务器，开发测试环境再也不需要安装Apache/Nginx了，也不需要为每个项目配置站点，使用起来也非常简单，只需要在终端中进入你站点的根目录，执行以下的命令：</p>
+<pre><code>$ php -S localhost:8000
+</code></pre><p>然后就可以在浏览器里访问了。</p>
+<p>如果你想指定站点的根目录,使用-t参数</p>
+<pre><code>$ php -S localhost:8000 -t /home/me/public_html
+</code></pre><p>如果需要使用本地测试域名在浏览器中访问，启动web服务器时使用本地ip(127.0.0.1)</p>
+<pre><code>$ php -S 127.0.0.1:8000
+</code></pre><p>我一直使用Codeigniter开发PHP项目，经过一个项目的实践，PHP内置的Web服务器完全胜任，以后开发环境就用他了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/10/30/php-internal-web-server/" data-id="ciulbdz1w00059qq2dtkksx19" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
 
     </footer>
   </div>
@@ -228,7 +274,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/28/install-mavericks/" data-id="ciulbc5xm000a9bq2llsfrjy8" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2013/10/28/install-mavericks/" data-id="ciulbdz2100079qq280e854wf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
@@ -1015,7 +1061,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/19/checklist/" data-id="ciulbc5we00019bq25qoh6kz2" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2013/10/19/checklist/" data-id="ciulbdz1r00049qq2wn07pi8z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
@@ -1088,7 +1134,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/18/google-analytics-ios/" data-id="ciulbc5wi00029bq2olsle7td" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2013/10/18/google-analytics-ios/" data-id="ciulbdz1d00009qq2bp8w1ewt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
@@ -1110,9 +1156,9 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
   </div>
 
@@ -1120,9 +1166,9 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/JustWritting/" style="font-size: 10px;">JustWritting</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a>
+      <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/JustWritting/" style="font-size: 10px;">JustWritting</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a>
     </div>
   </div>
 
@@ -1139,7 +1185,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -1152,15 +1198,15 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
           </li>
         
           <li>
+            <a href="/2013/10/30/php-internal-web-server/">使用PHP内置的Web服务器</a>
+          </li>
+        
+          <li>
             <a href="/2013/10/28/install-mavericks/">制作可启动的Mavericks安装盘</a>
           </li>
         
           <li>
             <a href="/2013/10/19/checklist/">APP上线前测试确认清单</a>
-          </li>
-        
-          <li>
-            <a href="/2013/10/18/google-analytics-ios/">Google Analytics for iOS</a>
           </li>
         
       </ul>
@@ -1176,7 +1222,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
