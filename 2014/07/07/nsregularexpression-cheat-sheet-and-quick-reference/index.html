@@ -3,30 +3,78 @@
 <head>
   <meta charset="utf-8">
   
-  <title>使用PHP内置的Web服务器 | Hexo</title>
+  <title>NSRegularExpression Cheat Sheet and Quick Reference | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用PHP内置的Web服务器PHP从5.4.0开始已经内置了Web服务器，开发测试环境再也不需要安装Apache/Nginx了，也不需要为每个项目配置站点，使用起来也非常简单，只需要在终端中进入你站点的根目录，执行以下的命令：
-$ php -S localhost:8000
-然后就可以在浏览器里访问了。
-如果你想指定站点的根目录,使用-t参数
-$ php -S localhost:8000 -t">
+  <meta name="description" content="NSRegularExpression Cheat Sheet and Quick ReferenceSpecial Characters*?+[(){}^$|\./
+Operators
+
+
+Pattern
+Description
+
+
+
+
+\
+
+￼Or
+
+
+ *
+0 or more times. Match as many times as possible.
+
+
+ +
+1 or more tim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用PHP内置的Web服务器">
-<meta property="og:url" content="http://yoursite.com/2013/10/30/php-internal-web-server/index.html">
+<meta property="og:title" content="NSRegularExpression Cheat Sheet and Quick Reference">
+<meta property="og:url" content="http://yoursite.com/2014/07/07/nsregularexpression-cheat-sheet-and-quick-reference/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="使用PHP内置的Web服务器PHP从5.4.0开始已经内置了Web服务器，开发测试环境再也不需要安装Apache/Nginx了，也不需要为每个项目配置站点，使用起来也非常简单，只需要在终端中进入你站点的根目录，执行以下的命令：
-$ php -S localhost:8000
-然后就可以在浏览器里访问了。
-如果你想指定站点的根目录,使用-t参数
-$ php -S localhost:8000 -t">
-<meta property="og:updated_time" content="2016-10-22T14:42:14.000Z">
+<meta property="og:description" content="NSRegularExpression Cheat Sheet and Quick ReferenceSpecial Characters*?+[(){}^$|\./
+Operators
+
+
+Pattern
+Description
+
+
+
+
+\
+
+￼Or
+
+
+ *
+0 or more times. Match as many times as possible.
+
+
+ +
+1 or more tim">
+<meta property="og:updated_time" content="2016-10-22T14:47:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用PHP内置的Web服务器">
-<meta name="twitter:description" content="使用PHP内置的Web服务器PHP从5.4.0开始已经内置了Web服务器，开发测试环境再也不需要安装Apache/Nginx了，也不需要为每个项目配置站点，使用起来也非常简单，只需要在终端中进入你站点的根目录，执行以下的命令：
-$ php -S localhost:8000
-然后就可以在浏览器里访问了。
-如果你想指定站点的根目录,使用-t参数
-$ php -S localhost:8000 -t">
+<meta name="twitter:title" content="NSRegularExpression Cheat Sheet and Quick Reference">
+<meta name="twitter:description" content="NSRegularExpression Cheat Sheet and Quick ReferenceSpecial Characters*?+[(){}^$|\./
+Operators
+
+
+Pattern
+Description
+
+
+
+
+\
+
+￼Or
+
+
+ *
+0 or more times. Match as many times as possible.
+
+
+ +
+1 or more tim">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -75,10 +123,10 @@ $ php -S localhost:8000 -t">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-php-internal-web-server" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-nsregularexpression-cheat-sheet-and-quick-reference" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2013/10/30/php-internal-web-server/" class="article-date">
-  <time datetime="2013-10-29T16:00:00.000Z" itemprop="datePublished">2013-10-30</time>
+    <a href="/2014/07/07/nsregularexpression-cheat-sheet-and-quick-reference/" class="article-date">
+  <time datetime="2014-07-06T16:00:00.000Z" itemprop="datePublished">2014-07-07</time>
 </a>
     
   </div>
@@ -89,7 +137,7 @@ $ php -S localhost:8000 -t">
         
   
     <h1 class="article-title" itemprop="name">
-      使用PHP内置的Web服务器
+      NSRegularExpression Cheat Sheet and Quick Reference
     </h1>
   
 
@@ -97,22 +145,196 @@ $ php -S localhost:8000 -t">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="使用PHP内置的Web服务器"><a href="#使用PHP内置的Web服务器" class="headerlink" title="使用PHP内置的Web服务器"></a>使用PHP内置的Web服务器</h2><p>PHP从5.4.0开始已经内置了Web服务器，开发测试环境再也不需要安装Apache/Nginx了，也不需要为每个项目配置站点，使用起来也非常简单，只需要在终端中进入你站点的根目录，执行以下的命令：</p>
-<pre><code>$ php -S localhost:8000
-</code></pre><p>然后就可以在浏览器里访问了。</p>
-<p>如果你想指定站点的根目录,使用-t参数</p>
-<pre><code>$ php -S localhost:8000 -t /home/me/public_html
-</code></pre><p>如果需要使用本地测试域名在浏览器中访问，启动web服务器时使用本地ip(127.0.0.1)</p>
-<pre><code>$ php -S 127.0.0.1:8000
-</code></pre><p>我一直使用Codeigniter开发PHP项目，经过一个项目的实践，PHP内置的Web服务器完全胜任，以后开发环境就用他了。</p>
+        <h2 id="NSRegularExpression-Cheat-Sheet-and-Quick-Reference"><a href="#NSRegularExpression-Cheat-Sheet-and-Quick-Reference" class="headerlink" title="NSRegularExpression Cheat Sheet and Quick Reference"></a>NSRegularExpression Cheat Sheet and Quick Reference</h2><h3 id="Special-Characters"><a href="#Special-Characters" class="headerlink" title="Special Characters"></a>Special Characters</h3><p><code>*?+[(){}^$|\./</code></p>
+<h3 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h3><table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\</td>
+<td></td>
+<td>￼Or</td>
+</tr>
+<tr>
+<td> *</td>
+<td>0 or more times. Match as many times as possible.</td>
+</tr>
+<tr>
+<td> +</td>
+<td>1 or more times. Match as many times as possible.</td>
+</tr>
+<tr>
+<td> ?</td>
+<td>0 or 1 times. Prefer 1.</td>
+</tr>
+<tr>
+<td> *?</td>
+<td>0 or more times. Match as few times as possible.</td>
+</tr>
+<tr>
+<td> +?</td>
+<td>1 or more times. Match as few times as possible.</td>
+</tr>
+<tr>
+<td> ??</td>
+<td>0 or 1 times. Prefer 0.</td>
+</tr>
+<tr>
+<td> *+</td>
+<td>0 or more times. Match as many times as possible when first encountered, do not retry with fewer even if overall match fails (Possessive Match).</td>
+</tr>
+<tr>
+<td> ++</td>
+<td>1 or more times. Possessive match.</td>
+</tr>
+<tr>
+<td>  ?+</td>
+<td>0 or 1 times. Possessive match.</td>
+</tr>
+<tr>
+<td> ￼{n} {n}? {n}+</td>
+<td>Exactly n times.</td>
+</tr>
+<tr>
+<td> {n,}</td>
+<td>￼n or more.</td>
+</tr>
+<tr>
+<td>{n,}?</td>
+<td>At least n times, but no more than required for an overall pattern match.</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>Between n and m times.</td>
+</tr>
+<tr>
+<td>￼{n,m}?</td>
+<td>Between n and m times. Match as few times as possible, but not less than n.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Anchors"><a href="#Anchors" class="headerlink" title="Anchors"></a>Anchors</h3><table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>Beginning of a line.</td>
+</tr>
+<tr>
+<td>$</td>
+<td>End of a line.</td>
+</tr>
+<tr>
+<td>\A</td>
+<td>Beginning of an input. Doesn’t match after a new line within the input.</td>
+</tr>
+<tr>
+<td>\z</td>
+<td>End of input.</td>
+</tr>
+<tr>
+<td>\Z</td>
+<td>End of input, but before the final line terminator, if one exists.</td>
+</tr>
+<tr>
+<td>￼.</td>
+<td>Any character.</td>
+</tr>
+<tr>
+<td>\</td>
+<td>Quote (escape) following character.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Character-Classes"><a href="#Character-Classes" class="headerlink" title="Character Classes"></a>Character Classes</h3><table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> \b</td>
+<td>Word boundary, if outside of a [Set]. BACKSPACE, if within a [Set].</td>
+</tr>
+<tr>
+<td>￼ \B</td>
+<td>Not word boundary.</td>
+</tr>
+<tr>
+<td>￼ \s</td>
+<td>White space character.</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>Non-white space character.</td>
+</tr>
+<tr>
+<td>￼\d</td>
+<td>Digit character.</td>
+</tr>
+<tr>
+<td>￼\D</td>
+<td>Non-digit character.</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>Word character.</td>
+</tr>
+<tr>
+<td>￼\W</td>
+<td>Non-word character.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Groups-and-Ranges"><a href="#Groups-and-Ranges" class="headerlink" title="Groups and Ranges"></a>Groups and Ranges</h3><table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(…)</td>
+<td>Capturing parentheses (capturing group).</td>
+</tr>
+<tr>
+<td>(?:…)</td>
+<td>Non-capturing parentheses. Matches but doesn’t capture. Somewhat more efficient than capturing parentheses.</td>
+</tr>
+<tr>
+<td>(?!…)</td>
+<td>Negative look-ahead. True if the parenthesized pattern does not match at the current input position.</td>
+</tr>
+<tr>
+<td>[…]</td>
+<td>Any one character in the set.</td>
+</tr>
+<tr>
+<td>[^…]</td>
+<td>Negated set. Not any one in the set.</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/30/php-internal-web-server/" data-id="ciulbki6i000ab4q2bol9fhcv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/07/nsregularexpression-cheat-sheet-and-quick-reference/" data-id="ciulbki690006b4q2kwo7br3z" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NSRegularExpression/">NSRegularExpression</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
 
     </footer>
   </div>
@@ -120,19 +342,19 @@ $ php -S localhost:8000 -t">
     
 <nav id="article-nav">
   
-    <a href="/2013/12/04/embedding-python/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/08/11/justwriting/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Xcode5中Objective-c项目嵌入Python
+          JustWritting 使用指南
         
       </div>
     </a>
   
   
-    <a href="/2013/10/28/install-mavericks/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2013/12/04/embedding-python/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">制作可启动的Mavericks安装盘</div>
+      <div class="article-nav-title">Xcode5中Objective-c项目嵌入Python</div>
     </a>
   
 </nav>
