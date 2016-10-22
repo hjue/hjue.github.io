@@ -96,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/12/hello-world/" data-id="ciulbdz1i00019qq29xn3ahkw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/12/hello-world/" data-id="ciulbg5y20004a6q27xbic972" class="article-share-link">Share</a>
       
       
     </footer>
@@ -180,10 +180,57 @@ svn ci -m &quot;submit code&quot;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/08/11/justwriting/" data-id="ciulbdz1p00039qq2558v0v3s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/08/11/justwriting/" data-id="ciulbg5yu000ha6q2dylyeog6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-embedding-python" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/04/embedding-python/" class="article-date">
+  <time datetime="2013-12-04T13:00:00.000Z" itemprop="datePublished">2013-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/04/embedding-python/">Xcode5中Objective-c项目嵌入Python</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Xcode4中在objc项目中使用Python，只需用引入Python.framework即可。<br>Xcode5已不能使用Python.framework了，需用通过下边的步骤添加对Python的支持。</p>
+<pre><code>$ python2.7-config --cflags
+-I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7 -I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7 -fno-strict-aliasing -fno-common -dynamic -arch x86_64 -arch i386 -g -Os -pipe -fno-common -fno-strict-aliasing -fwrapv -mno-fused-madd -DENABLE_DTRACE -DMACOSX -DNDEBUG -Wall -Wstrict-prototypes -Wshorten-64-to-32 -DNDEBUG -g -fwrapv -Os -Wall -Wstrict-prototypes -DENABLE_DTRACE
+</code></pre><p><img src="images/post/embedding-python-1.png" alt="embedding-python" title="Header Search Paths"></p>
+<p>把-I参数后边的路径复制到Build Settings/Header Search Paths中</p>
+<pre><code>$python2.7-config --ldflags
+-L/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config -ldl -framework CoreFoundation -lpython2.7
+</code></pre><p><img src="images/post/embedding-python-2.png" alt="embedding-python"></p>
+<p>在Finder中打开-L参数后边的路径，把libpython2.7.dylib 拖拽到Xcode项目的Framework中，在确认框中选择链接文件而不是复制。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/12/04/embedding-python/" data-id="ciulbg5xu0001a6q2139g6m6b" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li></ul>
 
     </footer>
   </div>
@@ -226,7 +273,7 @@ svn ci -m &quot;submit code&quot;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/30/php-internal-web-server/" data-id="ciulbdz1w00059qq2dtkksx19" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/10/30/php-internal-web-server/" data-id="ciulbg5z6000ka6q28wxrrqz7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
@@ -274,7 +321,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/28/install-mavericks/" data-id="ciulbdz2100079qq280e854wf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/10/28/install-mavericks/" data-id="ciulbg5y70005a6q27w96sc1b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
@@ -1061,7 +1108,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/19/checklist/" data-id="ciulbdz1r00049qq2wn07pi8z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/10/19/checklist/" data-id="ciulbg5xi0000a6q2k00jvxa1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
@@ -1134,7 +1181,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/18/google-analytics-ios/" data-id="ciulbdz1d00009qq2bp8w1ewt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/10/18/google-analytics-ios/" data-id="ciulbg5y10003a6q21ivxdxnz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
@@ -1158,7 +1205,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
   </div>
 
@@ -1168,7 +1215,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/JustWritting/" style="font-size: 10px;">JustWritting</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a>
+      <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/JustWritting/" style="font-size: 10px;">JustWritting</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a>
     </div>
   </div>
 
@@ -1177,7 +1224,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li></ul>
     </div>
   </div>
 
@@ -1198,15 +1245,15 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
           </li>
         
           <li>
+            <a href="/2013/12/04/embedding-python/">Xcode5中Objective-c项目嵌入Python</a>
+          </li>
+        
+          <li>
             <a href="/2013/10/30/php-internal-web-server/">使用PHP内置的Web服务器</a>
           </li>
         
           <li>
             <a href="/2013/10/28/install-mavericks/">制作可启动的Mavericks安装盘</a>
-          </li>
-        
-          <li>
-            <a href="/2013/10/19/checklist/">APP上线前测试确认清单</a>
           </li>
         
       </ul>
