@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -96,7 +96,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/12/hello-world/" data-id="ciulbki5a0000b4q2zv6e54yo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/12/hello-world/" data-id="ciulbnaer0004bmq2330hqv70" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -180,7 +180,7 @@ svn ci -m &quot;submit code&quot;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/08/11/justwriting/" data-id="ciulbki6g0009b4q2mm95o55r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/08/11/justwriting/" data-id="ciulbnaff000abmq2sq4wm5fl" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
@@ -400,7 +400,7 @@ svn ci -m &quot;submit code&quot;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/07/07/nsregularexpression-cheat-sheet-and-quick-reference/" data-id="ciulbki690006b4q2kwo7br3z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/07/07/nsregularexpression-cheat-sheet-and-quick-reference/" data-id="ciulbnafu000fbmq29om8rt9v" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NSRegularExpression/">NSRegularExpression</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
@@ -447,10 +447,85 @@ svn ci -m &quot;submit code&quot;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/04/embedding-python/" data-id="ciulbki650004b4q2dbutjldc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/12/04/embedding-python/" data-id="ciulbnaf40005bmq21h76cemr" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-download-header" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/31/download-header/" class="article-date">
+  <time datetime="2013-10-30T16:00:00.000Z" itemprop="datePublished">2013-10-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/31/download-header/">服务器下载文件Http头的设置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="服务器下载文件Http头的设置"><a href="#服务器下载文件Http头的设置" class="headerlink" title="服务器下载文件Http头的设置"></a>服务器下载文件Http头的设置</h2><p>网站提供下载服务时经常需要实现一个强制下载功能（即强制弹出下载对话框），并且文件名保持和用户之前上传时相同。<br>效果如下图：<br><img src="images/post/content-disposition.png" alt="Content Disposition"></p>
+<h3 id="Content-Disposition"><a href="#Content-Disposition" class="headerlink" title="Content-Disposition"></a>Content-Disposition</h3><p>使用 HTTP Header 的 Content-Disposition: attachment 可以实现下载时强制弹出下载对话框。</p>
+<p>由于HTTP协议规定，通信内容使用US ASCII编码，就是只能使用英文字符集。若要使用其他字符集，必须根据RFC3986使用百分号将字符串编码。</p>
+<pre><code>Content-Disposition: attachment; filename=filename.ext
+Content-Disposition: attachment; filename*=charset&apos;lang&apos;encoded-filename.ext
+</code></pre><p>如果不进行编码会出现,用户保存文件文件名会是乱码。如下图：</p>
+<p><img src="images/post/content-disposition2.png" alt="Content Disposition"></p>
+<p>不过关于Content-Disposition的<a href="http://tools.ietf.org/html/rfc6266" target="_blank" rel="external">RFC6266规范</a>是2011年6月才纳入HTTP标准。<br>浏览器方面我测试了主流浏览器，Firefox 、 Chrome 、 Opera 、 Safari ，都支持新标准规定的 filename<em>，不出意料，万恶的IE并不支持这个规范。不过我还是很吃惊，IE10竟然也不支持filename</em>。</p>
+<p>按照规范输出Content-Disposition的PHP代码如下：</p>
+<pre><code>if ( strpos ( $_SERVER [ &apos;HTTP_USER_AGENT&apos; ], &quot;MSIE&quot; ) &gt; 0 )
+{
+     header ( &apos;Content-Disposition: attachment; filename=&quot;&apos; . rawurlencode ( $originfile ) . &apos;&quot;&apos; );
+}
+else
+{
+     header( &apos;Content-Disposition: attachment; filename*=UTF-8\&apos;\&apos;&apos; . rawurlencode ( $originfile ) );
+}
+</code></pre><p>注意编码时使用<code>rawurlencode</code>而不是<code>urlencode</code>,二者的区别在于前者把空格编码为%20，而后者是+。在stackoverflow上关于这两个函数有更详细的讨论，<a href="http://stackoverflow.com/questions/996139/php-urlencode-vs-rawurlencode" target="_blank" rel="external">PHP - urlencode vs rawurlencode?</a>。</p>
+<h3 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type"></a>Content-Type</h3><p>浏览器对已知类型的文件（如jpg、pdf、txt等）直接在浏览器内打开，我们通过设置http头中的 Content-Type 来改变浏览器认知的文件类型。 这里把Content-Type 设置为octet-stream,也就是二进制文件流。这样浏览器就会直接打开文件，而不是在浏览器内打开。</p>
+<pre><code>Content-Type: application/octet-stream
+</code></pre><h3 id="完整PHP代码"><a href="#完整PHP代码" class="headerlink" title="完整PHP代码"></a>完整PHP代码</h3><pre><code>$filename = &apos;中文文件名.txt&apos;;
+header(&apos;Content-Type: application/octet-stream&apos;);
+if ( strpos ( $_SERVER [ &apos;HTTP_USER_AGENT&apos; ], &quot;MSIE&quot; ) &gt; 0 )
+{
+     header ( &apos;Content-Disposition: attachment; filename=&quot;&apos; . rawurlencode ( $originfile ) . &apos;&quot;&apos; );
+}
+else
+{
+     header( &apos;Content-Disposition: attachment; filename*=UTF-8\&apos;\&apos;&apos; . rawurlencode ( $originfile ) );
+}
+
+header(&apos;Expires: 0&apos;);
+header(&apos;Cache-Control: must-revalidate, post-check=0, pre-check=0&apos;);
+header(&quot;Content-Transfer-Encoding: binary&quot;);
+header(&apos;Pragma: public&apos;);
+header(&quot;Content-Length: &quot;.filesize($filename));
+</code></pre><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://greenbytes.de/tech/tc2231/" target="_blank" rel="external">Test Cases for HTTP Content-Disposition header field (RFC 6266) and the Encodings defined in RFCs 2047, 2231 and 5987</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/10/31/download-header/" data-id="ciulbnaem0003bmq2hvaan9mk" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
 
     </footer>
   </div>
@@ -493,7 +568,7 @@ svn ci -m &quot;submit code&quot;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/30/php-internal-web-server/" data-id="ciulbki6i000ab4q2bol9fhcv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/10/30/php-internal-web-server/" data-id="ciulbnafs000cbmq2xz0xngke" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
@@ -541,10 +616,168 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/28/install-mavericks/" data-id="ciulbki660005b4q2kz90u3sq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/10/28/install-mavericks/" data-id="ciulbnaf90007bmq2l774cfi2" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-codeigniter-twig" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/25/codeigniter-twig/" class="article-date">
+  <time datetime="2013-10-24T16:00:00.000Z" itemprop="datePublished">2013-10-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/25/codeigniter-twig/">CodeIgniter 和 Twig 整合</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+## 为啥还要用 Twig
+
+PHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这样的模版引擎？
+
+首先，PHP可以嵌入HTML，但它首先是一种编程语言，这就意味着他对语法的要求很严格。比如，你在View中少写个分号会导致整个页面的崩溃，使用了模版引擎则不会。
+
+安全性。如果允许用户自定义模版，那你就必须使用模版引擎，否则用户在模版中注入了攻击的PHP代码，呵呵，兄弟，你就等着哭吧。
+
+跨语言。Twig和Jinja还有Django的模版规则几乎相同，Python开发者自然不会拒绝为你的系统开发模版。
+
+模版功能更强大。可以自定义标签、过滤器、函数，支持Base语法。
+
+IDE的支持。PHP的标签会影响HTML在IDE中的高亮显示，而Twig则不会。Vim和Textmate有Twig插件支持你快速的编写模版。
+
+## Twig 和 Codeigniter 整合
+
+Codeigniter是一个PHP Framework，我一直使用他，没用过的请返回吧。下边的内容对你没有帮助。
+
+Twig 和 Codeigniter 整合非常简单，仅仅两步即可完成
+
+### 第一步，引入Twig库
+
+下载[Twig](https://github.com/fabpot/Twig),解压Twig，将Twig源代码中的lib/Twig目录复制到CI的Application/third_party中，复制后的结果如下图
+![安装Twig](images/post/twig1.png)
+
+### 第二步，为Codeigniter创建Twig类
+
+#### 在Codeigniter的library目录中增加一个Twig.php文件，将如下代码粘贴进去
+
+*注意把*APPPATH/cache*目录设置为可写，twig会把编译后的模版放到这个目录中*
+
+    :::PHP
+    <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
+    /*
+     * Created on 2013-10-25 by haojue
+     * Twig CI Library
+     *
+     */
+    require_once APPPATH . 'third_party/Twig/Autoloader.php';
+
+    class Twig {
+
+    	private $loader ;
+    	private $twig;
+    	private $_ci;
+
+    	function __construct() {
+        Twig_Autoloader::register();
+    		$this->loader = new Twig_Loader_Filesystem(APPPATH.'views');
+    		$this->twig = new Twig_Environment($this->loader, array(
+    			'cache' => APPPATH.'cache',
+          'auto_reload' => true
+    		));
+    	}
+
+    	public function render($tpl,$data,$return = FALSE) {
+    		$output = $this->twig->render($tpl,$data);
+    		$this->_ci =& get_instance();
+    		$this->_ci->output->append_output($output);
+    		if ($return) {
+    			return  $output;
+    		}
+    	}
+      /**
+       * __call
+       * @param string $method
+       * @param array $args
+       * @throws Exception
+      */
+    	public function __call($method,$args) {
+    		$return = call_user_func_array(array($this->twig,$method),$args);
+    		if ($return) {
+    			return $return;
+    		}
+    	}
+
+    }
+
+
+#### 在Codeigniter中使用Twig模版
+
+    :::PHP
+    class Test extends CI_Controller {
+
+        public function index()
+        {
+            $this->load->library('twig');
+            $this->twig->render('twig_template.html'); //模版文件放置在view目录中
+        }
+    }
+
+
+### 为Twig添加函数
+
+以下代码新建了一个CI的Helper,加载helper后，可以使用{{ base_url('something') }}获得base_url
+
+
+    :::PHP
+    <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+     if ( ! function_exists('twig_extend'))
+     {
+       function twig_extend()
+       {
+         $CI = & get_instance();
+         if ( ! $CI->twig instanceof Twig) {
+           log_message('error', "Twig library not initialized");
+           return;
+       }
+       $CI->load->helper('url');
+       $base_url = new Twig_SimpleFunction('base_url', 'base_url');
+
+       // Now you’ll be able to use {{ base_url('something') }} in your
+       // template files, after you call this twig_extend() helper function
+       // in your controllers.
+       $CI->twig->addFunction($base_url);
+      }
+    }
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/10/25/codeigniter-twig/" data-id="ciulbnae60000bmq2d3oiwh3g" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodeIgniter/">CodeIgniter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Twig/">Twig</a></li></ul>
 
     </footer>
   </div>
@@ -1328,7 +1561,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/19/checklist/" data-id="ciulbki5l0001b4q23ld88rp7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/10/19/checklist/" data-id="ciulbnaec0001bmq2u2kvahfh" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
@@ -1401,7 +1634,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/18/google-analytics-ios/" data-id="ciulbki5q0002b4q25k08p0dq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/10/18/google-analytics-ios/" data-id="ciulbnafb0008bmq240u9su2t" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
@@ -1423,9 +1656,9 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSRegularExpression/">NSRegularExpression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeIgniter/">CodeIgniter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSRegularExpression/">NSRegularExpression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twig/">Twig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
   </div>
 
@@ -1433,9 +1666,9 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/JustWritting/" style="font-size: 10px;">JustWritting</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/NSRegularExpression/" style="font-size: 10px;">NSRegularExpression</a> <a href="/tags/PHP/" style="font-size: 15px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a>
+      <a href="/tags/CodeIgniter/" style="font-size: 10px;">CodeIgniter</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JustWritting/" style="font-size: 10px;">JustWritting</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/NSRegularExpression/" style="font-size: 10px;">NSRegularExpression</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Twig/" style="font-size: 10px;">Twig</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a>
     </div>
   </div>
 
@@ -1452,7 +1685,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -1473,7 +1706,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
           </li>
         
           <li>
-            <a href="/2013/10/30/php-internal-web-server/">使用PHP内置的Web服务器</a>
+            <a href="/2013/10/31/download-header/">服务器下载文件Http头的设置</a>
           </li>
         
       </ul>
@@ -1489,7 +1722,7 @@ sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&qu
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

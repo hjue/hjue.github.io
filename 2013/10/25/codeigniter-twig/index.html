@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CodeIgniter 和 Twig 整合 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="## 为啥还要用 Twig
+
+PHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这样的模版引擎？
+
+首先，PHP可以嵌入HTML，但它首先是一种编程语言，这就意味着他对语法的要求很严格。比如，你在View中少写个分号会导致整个页面的崩溃，使用了模版引擎则不会。
+
+安全性。如果允许用户自定义模版，那你就必须使用模版引擎，否则用户在模版中注入了攻击的PHP代码，呵呵，兄弟，你就等着哭">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CodeIgniter 和 Twig 整合">
+<meta property="og:url" content="http://yoursite.com/2013/10/25/codeigniter-twig/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="## 为啥还要用 Twig
+
+PHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这样的模版引擎？
+
+首先，PHP可以嵌入HTML，但它首先是一种编程语言，这就意味着他对语法的要求很严格。比如，你在View中少写个分号会导致整个页面的崩溃，使用了模版引擎则不会。
+
+安全性。如果允许用户自定义模版，那你就必须使用模版引擎，否则用户在模版中注入了攻击的PHP代码，呵呵，兄弟，你就等着哭">
+<meta property="og:updated_time" content="2016-10-22T14:52:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CodeIgniter 和 Twig 整合">
+<meta name="twitter:description" content="## 为啥还要用 Twig
+
+PHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这样的模版引擎？
+
+首先，PHP可以嵌入HTML，但它首先是一种编程语言，这就意味着他对语法的要求很严格。比如，你在View中少写个分号会导致整个页面的崩溃，使用了模版引擎则不会。
+
+安全性。如果允许用户自定义模版，那你就必须使用模版引擎，否则用户在模版中注入了攻击的PHP代码，呵呵，兄弟，你就等着哭">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-codeigniter-twig" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/25/codeigniter-twig/" class="article-date">
+  <time datetime="2013-10-24T16:00:00.000Z" itemprop="datePublished">2013-10-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CodeIgniter 和 Twig 整合
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+## 为啥还要用 Twig
+
+PHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这样的模版引擎？
+
+首先，PHP可以嵌入HTML，但它首先是一种编程语言，这就意味着他对语法的要求很严格。比如，你在View中少写个分号会导致整个页面的崩溃，使用了模版引擎则不会。
+
+安全性。如果允许用户自定义模版，那你就必须使用模版引擎，否则用户在模版中注入了攻击的PHP代码，呵呵，兄弟，你就等着哭吧。
+
+跨语言。Twig和Jinja还有Django的模版规则几乎相同，Python开发者自然不会拒绝为你的系统开发模版。
+
+模版功能更强大。可以自定义标签、过滤器、函数，支持Base语法。
+
+IDE的支持。PHP的标签会影响HTML在IDE中的高亮显示，而Twig则不会。Vim和Textmate有Twig插件支持你快速的编写模版。
+
+## Twig 和 Codeigniter 整合
+
+Codeigniter是一个PHP Framework，我一直使用他，没用过的请返回吧。下边的内容对你没有帮助。
+
+Twig 和 Codeigniter 整合非常简单，仅仅两步即可完成
+
+### 第一步，引入Twig库
+
+下载[Twig](https://github.com/fabpot/Twig),解压Twig，将Twig源代码中的lib/Twig目录复制到CI的Application/third_party中，复制后的结果如下图
+![安装Twig](images/post/twig1.png)
+
+### 第二步，为Codeigniter创建Twig类
+
+#### 在Codeigniter的library目录中增加一个Twig.php文件，将如下代码粘贴进去
+
+*注意把*APPPATH/cache*目录设置为可写，twig会把编译后的模版放到这个目录中*
+
+    :::PHP
+    <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
+    /*
+     * Created on 2013-10-25 by haojue
+     * Twig CI Library
+     *
+     */
+    require_once APPPATH . 'third_party/Twig/Autoloader.php';
+
+    class Twig {
+
+    	private $loader ;
+    	private $twig;
+    	private $_ci;
+
+    	function __construct() {
+        Twig_Autoloader::register();
+    		$this->loader = new Twig_Loader_Filesystem(APPPATH.'views');
+    		$this->twig = new Twig_Environment($this->loader, array(
+    			'cache' => APPPATH.'cache',
+          'auto_reload' => true
+    		));
+    	}
+
+    	public function render($tpl,$data,$return = FALSE) {
+    		$output = $this->twig->render($tpl,$data);
+    		$this->_ci =& get_instance();
+    		$this->_ci->output->append_output($output);
+    		if ($return) {
+    			return  $output;
+    		}
+    	}
+      /**
+       * __call
+       * @param string $method
+       * @param array $args
+       * @throws Exception
+      */
+    	public function __call($method,$args) {
+    		$return = call_user_func_array(array($this->twig,$method),$args);
+    		if ($return) {
+    			return $return;
+    		}
+    	}
+
+    }
+
+
+#### 在Codeigniter中使用Twig模版
+
+    :::PHP
+    class Test extends CI_Controller {
+
+        public function index()
+        {
+            $this->load->library('twig');
+            $this->twig->render('twig_template.html'); //模版文件放置在view目录中
+        }
+    }
+
+
+### 为Twig添加函数
+
+以下代码新建了一个CI的Helper,加载helper后，可以使用{{ base_url('something') }}获得base_url
+
+
+    :::PHP
+    <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+     if ( ! function_exists('twig_extend'))
+     {
+       function twig_extend()
+       {
+         $CI = & get_instance();
+         if ( ! $CI->twig instanceof Twig) {
+           log_message('error', "Twig library not initialized");
+           return;
+       }
+       $CI->load->helper('url');
+       $base_url = new Twig_SimpleFunction('base_url', 'base_url');
+
+       // Now you’ll be able to use {{ base_url('something') }} in your
+       // template files, after you call this twig_extend() helper function
+       // in your controllers.
+       $CI->twig->addFunction($base_url);
+      }
+    }
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/10/25/codeigniter-twig/" data-id="ciulbnae60000bmq2d3oiwh3g" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodeIgniter/">CodeIgniter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Twig/">Twig</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/10/28/install-mavericks/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          制作可启动的Mavericks安装盘
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/10/19/checklist/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">APP上线前测试确认清单</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Mot-clés</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeIgniter/">CodeIgniter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSRegularExpression/">NSRegularExpression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twig/">Twig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CodeIgniter/" style="font-size: 10px;">CodeIgniter</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JustWritting/" style="font-size: 10px;">JustWritting</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/NSRegularExpression/" style="font-size: 10px;">NSRegularExpression</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Twig/" style="font-size: 10px;">Twig</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/10/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2014/08/11/justwriting/">JustWritting 使用指南</a>
+          </li>
+        
+          <li>
+            <a href="/2014/07/07/nsregularexpression-cheat-sheet-and-quick-reference/">NSRegularExpression Cheat Sheet and Quick Reference</a>
+          </li>
+        
+          <li>
+            <a href="/2013/12/04/embedding-python/">Xcode5中Objective-c项目嵌入Python</a>
+          </li>
+        
+          <li>
+            <a href="/2013/10/31/download-header/">服务器下载文件Http头的设置</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
