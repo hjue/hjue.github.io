@@ -5,34 +5,27 @@
   
   <title>CodeIgniter 和 Twig 整合 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="## 为啥还要用 Twig
-
-PHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这样的模版引擎？
-
+  <meta name="description" content="为啥还要用 TwigPHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这样的模版引擎？
 首先，PHP可以嵌入HTML，但它首先是一种编程语言，这就意味着他对语法的要求很严格。比如，你在View中少写个分号会导致整个页面的崩溃，使用了模版引擎则不会。
-
-安全性。如果允许用户自定义模版，那你就必须使用模版引擎，否则用户在模版中注入了攻击的PHP代码，呵呵，兄弟，你就等着哭">
+安全性。如果允许用户自定义模版，那你就必须使用模版引擎，否则用户在模版中注入了攻击的PHP代码，呵呵，兄弟，你就等着哭吧。
+跨语言。T">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CodeIgniter 和 Twig 整合">
 <meta property="og:url" content="http://yoursite.com/2013/10/25/codeigniter-twig/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="## 为啥还要用 Twig
-
-PHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这样的模版引擎？
-
+<meta property="og:description" content="为啥还要用 TwigPHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这样的模版引擎？
 首先，PHP可以嵌入HTML，但它首先是一种编程语言，这就意味着他对语法的要求很严格。比如，你在View中少写个分号会导致整个页面的崩溃，使用了模版引擎则不会。
-
-安全性。如果允许用户自定义模版，那你就必须使用模版引擎，否则用户在模版中注入了攻击的PHP代码，呵呵，兄弟，你就等着哭">
-<meta property="og:updated_time" content="2016-10-22T14:52:52.000Z">
+安全性。如果允许用户自定义模版，那你就必须使用模版引擎，否则用户在模版中注入了攻击的PHP代码，呵呵，兄弟，你就等着哭吧。
+跨语言。T">
+<meta property="og:image" content="http://yoursite.com/images/post/twig1.png">
+<meta property="og:updated_time" content="2016-10-23T16:06:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodeIgniter 和 Twig 整合">
-<meta name="twitter:description" content="## 为啥还要用 Twig
-
-PHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这样的模版引擎？
-
+<meta name="twitter:description" content="为啥还要用 TwigPHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这样的模版引擎？
 首先，PHP可以嵌入HTML，但它首先是一种编程语言，这就意味着他对语法的要求很严格。比如，你在View中少写个分号会导致整个页面的崩溃，使用了模版引擎则不会。
-
-安全性。如果允许用户自定义模版，那你就必须使用模版引擎，否则用户在模版中注入了攻击的PHP代码，呵呵，兄弟，你就等着哭">
+安全性。如果允许用户自定义模版，那你就必须使用模版引擎，否则用户在模版中注入了攻击的PHP代码，呵呵，兄弟，你就等着哭吧。
+跨语言。T">
+<meta name="twitter:image" content="http://yoursite.com/images/post/twig1.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -70,9 +63,9 @@ PHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -103,131 +96,98 @@ PHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这
     
     <div class="article-entry" itemprop="articleBody">
       
-        
-## 为啥还要用 Twig
+        <h2 id="为啥还要用-Twig"><a href="#为啥还要用-Twig" class="headerlink" title="为啥还要用 Twig"></a>为啥还要用 Twig</h2><p>PHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这样的模版引擎？</p>
+<p>首先，PHP可以嵌入HTML，但它首先是一种编程语言，这就意味着他对语法的要求很严格。比如，你在View中少写个分号会导致整个页面的崩溃，使用了模版引擎则不会。</p>
+<p>安全性。如果允许用户自定义模版，那你就必须使用模版引擎，否则用户在模版中注入了攻击的PHP代码，呵呵，兄弟，你就等着哭吧。</p>
+<p>跨语言。Twig和Jinja还有Django的模版规则几乎相同，Python开发者自然不会拒绝为你的系统开发模版。</p>
+<p>模版功能更强大。可以自定义标签、过滤器、函数，支持Base语法。</p>
+<p>IDE的支持。PHP的标签会影响HTML在IDE中的高亮显示，而Twig则不会。Vim和Textmate有Twig插件支持你快速的编写模版。</p>
+<h2 id="Twig-和-Codeigniter-整合"><a href="#Twig-和-Codeigniter-整合" class="headerlink" title="Twig 和 Codeigniter 整合"></a>Twig 和 Codeigniter 整合</h2><p>Codeigniter是一个PHP Framework，我一直使用他，没用过的请返回吧。下边的内容对你没有帮助。</p>
+<p>Twig 和 Codeigniter 整合非常简单，仅仅两步即可完成</p>
+<h3 id="第一步，引入Twig库"><a href="#第一步，引入Twig库" class="headerlink" title="第一步，引入Twig库"></a>第一步，引入Twig库</h3><p>下载<a href="https://github.com/fabpot/Twig" target="_blank" rel="external">Twig</a>,解压Twig，将Twig源代码中的lib/Twig目录复制到CI的Application/third_party中，复制后的结果如下图<br><img src="images/post/twig1.png" alt="安装Twig"></p>
+<h3 id="第二步，为Codeigniter创建Twig类"><a href="#第二步，为Codeigniter创建Twig类" class="headerlink" title="第二步，为Codeigniter创建Twig类"></a>第二步，为Codeigniter创建Twig类</h3><h4 id="在Codeigniter的library目录中增加一个Twig-php文件，将如下代码粘贴进去"><a href="#在Codeigniter的library目录中增加一个Twig-php文件，将如下代码粘贴进去" class="headerlink" title="在Codeigniter的library目录中增加一个Twig.php文件，将如下代码粘贴进去"></a>在Codeigniter的library目录中增加一个Twig.php文件，将如下代码粘贴进去</h4><p><em>注意把</em>APPPATH/cache<em>目录设置为可写，twig会把编译后的模版放到这个目录中</em></p>
+<pre><code>:::PHP
+&lt;?php  if (!defined(&apos;BASEPATH&apos;)) exit(&apos;No direct script access allowed&apos;);
+/*
+ * Created on 2013-10-25 by haojue
+ * Twig CI Library
+ *
+ */
+require_once APPPATH . &apos;third_party/Twig/Autoloader.php&apos;;
 
-PHP可以嵌入HTML，可以说本身就是模版语言，为啥还要用Twig这样的模版引擎？
+class Twig {
 
-首先，PHP可以嵌入HTML，但它首先是一种编程语言，这就意味着他对语法的要求很严格。比如，你在View中少写个分号会导致整个页面的崩溃，使用了模版引擎则不会。
+    private $loader ;
+    private $twig;
+    private $_ci;
 
-安全性。如果允许用户自定义模版，那你就必须使用模版引擎，否则用户在模版中注入了攻击的PHP代码，呵呵，兄弟，你就等着哭吧。
-
-跨语言。Twig和Jinja还有Django的模版规则几乎相同，Python开发者自然不会拒绝为你的系统开发模版。
-
-模版功能更强大。可以自定义标签、过滤器、函数，支持Base语法。
-
-IDE的支持。PHP的标签会影响HTML在IDE中的高亮显示，而Twig则不会。Vim和Textmate有Twig插件支持你快速的编写模版。
-
-## Twig 和 Codeigniter 整合
-
-Codeigniter是一个PHP Framework，我一直使用他，没用过的请返回吧。下边的内容对你没有帮助。
-
-Twig 和 Codeigniter 整合非常简单，仅仅两步即可完成
-
-### 第一步，引入Twig库
-
-下载[Twig](https://github.com/fabpot/Twig),解压Twig，将Twig源代码中的lib/Twig目录复制到CI的Application/third_party中，复制后的结果如下图
-![安装Twig](images/post/twig1.png)
-
-### 第二步，为Codeigniter创建Twig类
-
-#### 在Codeigniter的library目录中增加一个Twig.php文件，将如下代码粘贴进去
-
-*注意把*APPPATH/cache*目录设置为可写，twig会把编译后的模版放到这个目录中*
-
-    :::PHP
-    <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
-    /*
-     * Created on 2013-10-25 by haojue
-     * Twig CI Library
-     *
-     */
-    require_once APPPATH . 'third_party/Twig/Autoloader.php';
-
-    class Twig {
-
-    	private $loader ;
-    	private $twig;
-    	private $_ci;
-
-    	function __construct() {
-        Twig_Autoloader::register();
-    		$this->loader = new Twig_Loader_Filesystem(APPPATH.'views');
-    		$this->twig = new Twig_Environment($this->loader, array(
-    			'cache' => APPPATH.'cache',
-          'auto_reload' => true
-    		));
-    	}
-
-    	public function render($tpl,$data,$return = FALSE) {
-    		$output = $this->twig->render($tpl,$data);
-    		$this->_ci =& get_instance();
-    		$this->_ci->output->append_output($output);
-    		if ($return) {
-    			return  $output;
-    		}
-    	}
-      /**
-       * __call
-       * @param string $method
-       * @param array $args
-       * @throws Exception
-      */
-    	public function __call($method,$args) {
-    		$return = call_user_func_array(array($this->twig,$method),$args);
-    		if ($return) {
-    			return $return;
-    		}
-    	}
-
+    function __construct() {
+    Twig_Autoloader::register();
+        $this-&gt;loader = new Twig_Loader_Filesystem(APPPATH.&apos;views&apos;);
+        $this-&gt;twig = new Twig_Environment($this-&gt;loader, array(
+            &apos;cache&apos; =&gt; APPPATH.&apos;cache&apos;,
+      &apos;auto_reload&apos; =&gt; true
+        ));
     }
 
-
-#### 在Codeigniter中使用Twig模版
-
-    :::PHP
-    class Test extends CI_Controller {
-
-        public function index()
-        {
-            $this->load->library('twig');
-            $this->twig->render('twig_template.html'); //模版文件放置在view目录中
+    public function render($tpl,$data,$return = FALSE) {
+        $output = $this-&gt;twig-&gt;render($tpl,$data);
+        $this-&gt;_ci =&amp; get_instance();
+        $this-&gt;_ci-&gt;output-&gt;append_output($output);
+        if ($return) {
+            return  $output;
+        }
+    }
+  /**
+   * __call
+   * @param string $method
+   * @param array $args
+   * @throws Exception
+  */
+    public function __call($method,$args) {
+        $return = call_user_func_array(array($this-&gt;twig,$method),$args);
+        if ($return) {
+            return $return;
         }
     }
 
+}
+</code></pre><h4 id="在Codeigniter中使用Twig模版"><a href="#在Codeigniter中使用Twig模版" class="headerlink" title="在Codeigniter中使用Twig模版"></a>在Codeigniter中使用Twig模版</h4><pre><code>:::PHP
+class Test extends CI_Controller {
 
-### 为Twig添加函数
-
-以下代码新建了一个CI的Helper,加载helper后，可以使用{{ base_url('something') }}获得base_url
-
-
-    :::PHP
-    <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
-
-     if ( ! function_exists('twig_extend'))
-     {
-       function twig_extend()
-       {
-         $CI = & get_instance();
-         if ( ! $CI->twig instanceof Twig) {
-           log_message('error', "Twig library not initialized");
-           return;
-       }
-       $CI->load->helper('url');
-       $base_url = new Twig_SimpleFunction('base_url', 'base_url');
-
-       // Now you’ll be able to use {{ base_url('something') }} in your
-       // template files, after you call this twig_extend() helper function
-       // in your controllers.
-       $CI->twig->addFunction($base_url);
-      }
+    public function index()
+    {
+        $this-&gt;load-&gt;library(&apos;twig&apos;);
+        $this-&gt;twig-&gt;render(&apos;twig_template.html&apos;); //模版文件放置在view目录中
     }
+}
+</code></pre><h3 id="为Twig添加函数"><a href="#为Twig添加函数" class="headerlink" title="为Twig添加函数"></a>为Twig添加函数</h3><p>以下代码新建了一个CI的Helper,加载helper后，可以使用{{ base_url('something') }}获得base_url</p>
+<pre><code>:::PHP
+&lt;?php  if (!defined(&apos;BASEPATH&apos;)) exit(&apos;No direct script access allowed&apos;);
 
+ if ( ! function_exists(&apos;twig_extend&apos;))
+ {
+   function twig_extend()
+   {
+     $CI = &amp; get_instance();
+     if ( ! $CI-&gt;twig instanceof Twig) {
+       log_message(&apos;error&apos;, &quot;Twig library not initialized&quot;);
+       return;
+   }
+   $CI-&gt;load-&gt;helper(&apos;url&apos;);
+   $base_url = new Twig_SimpleFunction(&apos;base_url&apos;, &apos;base_url&apos;);
 
+   // Now you’ll be able to use {% raw %}{{ base_url('something') }}{% endraw %} in your
+   // template files, after you call this twig_extend() helper function
+   // in your controllers.
+   $CI-&gt;twig-&gt;addFunction($base_url);
+  }
+}
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/25/codeigniter-twig/" data-id="ciumtquu7000651q2w8chctuo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/10/25/codeigniter-twig/" data-id="ciumttv5500005qq2vhec3tg9" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CodeIgniter/">CodeIgniter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Twig/">Twig</a></li></ul>
@@ -239,7 +199,7 @@ Twig 和 Codeigniter 整合非常简单，仅仅两步即可完成
 <nav id="article-nav">
   
     <a href="/2013/10/28/install-mavericks/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Récent</strong>
       <div class="article-nav-title">
         
           制作可启动的Mavericks安装盘
@@ -249,7 +209,7 @@ Twig 和 Codeigniter 整合非常简单，仅仅两步即可完成
   
   
     <a href="/2013/10/19/checklist/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">APP上线前测试确认清单</div>
     </a>
   
@@ -267,7 +227,7 @@ Twig 和 Codeigniter 整合非常简单，仅仅两步即可完成
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeIgniter/">CodeIgniter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSRegularExpression/">NSRegularExpression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twig/">Twig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
@@ -277,7 +237,7 @@ Twig 和 Codeigniter 整合非常简单，仅仅两步即可完成
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/CodeIgniter/" style="font-size: 10px;">CodeIgniter</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JustWritting/" style="font-size: 10px;">JustWritting</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/NSRegularExpression/" style="font-size: 10px;">NSRegularExpression</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Twig/" style="font-size: 10px;">Twig</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a>
     </div>
@@ -296,7 +256,7 @@ Twig 和 Codeigniter 整合非常简单，仅仅两步即可完成
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -333,7 +293,7 @@ Twig 和 Codeigniter 整合非常简单，仅仅两步即可完成
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
