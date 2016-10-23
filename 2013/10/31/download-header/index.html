@@ -17,7 +17,7 @@ Content-Disposition使用 HTTP Header 的 Content-Disposition: attachment 可以
 由于HTTP协议规定，通信内容使用US ASCII编码，就是只能使用英文字符">
 <meta property="og:image" content="http://yoursite.com/images/post/content-disposition.png">
 <meta property="og:image" content="http://yoursite.com/images/post/content-disposition2.png">
-<meta property="og:updated_time" content="2016-10-23T15:51:34.000Z">
+<meta property="og:updated_time" content="2016-10-23T16:03:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器下载文件Http头的设置">
 <meta name="twitter:description" content="服务器下载文件Http头的设置网站提供下载服务时经常需要实现一个强制下载功能（即强制弹出下载对话框），并且文件名保持和用户之前上传时相同。效果如下图：
@@ -100,7 +100,7 @@ Content-Disposition使用 HTTP Header 的 Content-Disposition: attachment 可以
 <pre><code>Content-Disposition: attachment; filename=filename.ext
 Content-Disposition: attachment; filename*=charset&apos;lang&apos;encoded-filename.ext
 </code></pre><p>如果不进行编码会出现,用户保存文件文件名会是乱码。如下图：</p>
-<p><img src="images/post/content-disposition2.png" alt="Content Disposition"></p>
+<p><img src="/images/post/content-disposition2.png" alt="Content Disposition"></p>
 <p>不过关于Content-Disposition的<a href="http://tools.ietf.org/html/rfc6266" target="_blank" rel="external">RFC6266规范</a>是2011年6月才纳入HTTP标准。<br>浏览器方面我测试了主流浏览器，Firefox 、 Chrome 、 Opera 、 Safari ，都支持新标准规定的 filename<em>，不出意料，万恶的IE并不支持这个规范。不过我还是很吃惊，IE10竟然也不支持filename</em>。</p>
 <p>按照规范输出Content-Disposition的PHP代码如下：</p>
 <pre><code>if ( strpos ( $_SERVER [ &apos;HTTP_USER_AGENT&apos; ], &quot;MSIE&quot; ) &gt; 0 )
@@ -135,7 +135,7 @@ header(&quot;Content-Length: &quot;.filesize($filename));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/31/download-header/" data-id="ciumtkq1900014lq2cz1xdpcj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/10/31/download-header/" data-id="ciumtquu3000451q29ra92lcb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
