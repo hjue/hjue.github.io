@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: Web | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/Web/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
@@ -61,38 +61,84 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2013/10/30/php-internal-web-server/" class="archive-article-date">
-  <time datetime="2013-10-29T16:00:00.000Z" itemprop="datePublished">Oct 30</time>
+    <article id="post-google-analytics-ios" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/18/google-analytics-ios/" class="article-date">
+  <time datetime="2013-10-18T04:22:00.000Z" itemprop="datePublished">2013-10-18</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2013/10/30/php-internal-web-server/">使用PHP内置的Web服务器</a>
+      <a class="article-title" href="/2013/10/18/google-analytics-ios/">Google Analytics for iOS</a>
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Guide"><a href="#Guide" class="headerlink" title="Guide"></a>Guide</h4><p><a href="https://developers.google.com/analytics/devguides/collection/android/v3/" target="_blank" rel="external">Developer Doc</a></p>
+<h4 id="Liner-error-when-trying-to-install-new-Google-Analytics-3-0-beta"><a href="#Liner-error-when-trying-to-install-new-Google-Analytics-3-0-beta" class="headerlink" title="Liner error when trying to install new Google Analytics 3.0 beta"></a>Liner error when trying to install new Google Analytics 3.0 beta</h4><pre><code>Add AdSupport.framework
+</code></pre><h4 id="Initializing-the-tracker"><a href="#Initializing-the-tracker" class="headerlink" title="Initializing the tracker"></a>Initializing the tracker</h4><pre><code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  // Optional: automatically send uncaught exceptions to Google Analytics.
+  [GAI sharedInstance].trackUncaughtExceptions = YES;
+
+  // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+  [GAI sharedInstance].dispatchInterval = 20;
+
+  // Optional: set Logger to VERBOSE for debug information.
+  [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+
+  // Initialize tracker.
+  id&lt;GAITracker&gt; tracker = [[GAI sharedInstance] trackerWithTrackingId:@&quot;UA-XXXX-Y&quot;];
+
+}
+</code></pre><h4 id="Manual-Screen-Tracking"><a href="#Manual-Screen-Tracking" class="headerlink" title="Manual Screen Tracking"></a>Manual Screen Tracking</h4><pre><code>#import &quot;GAI.h&quot;
+#import &quot;GAIDictionaryBuilder.h&quot;
+#import &quot;GAIFields.h&quot;
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    id&lt;GAITracker&gt; tracker = [[GAI sharedInstance] defaultTracker];
+
+    // This screen name value will remain set on the tracker and sent with
+    // hits until it is set to a new value or to nil.
+    [tracker set:kGAIScreenName value:@&quot;Home Screen&quot;];
+
+    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
+}
+</code></pre><h4 id="Event-Tracking"><a href="#Event-Tracking" class="headerlink" title="Event Tracking"></a>Event Tracking</h4><pre><code>id&lt;GAITracker&gt; tracker = [[GAI sharedInstance] defaultTracker];
+[tracker send:[[GAIDictionaryBuilder createEventWithCategory:@&quot;UI_ACTION&quot;     // Event category (required)
+                                                      action:@&quot;BUTTON_PRESS&quot;  // Event action (required)
+                                                       label:@&quot;DOWNLOAD&quot;          // Event label
+                                                       value:[NSNumber numberWithInt:_slideID]] build]];    // Event value
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/10/18/google-analytics-ios/" data-id="ciuncbozz0005ctq2trtvdy28" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+
+    </footer>
   </div>
+  
 </article>
-  
-  
-    </div></section>
+
+
   
 
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 </section>
         
           <aside id="sidebar">
