@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>升级到PHP5.5.x可大幅度提高服务器负载能力 | 漫漫人生路</title>
+  <title>升级到PHP5.5.x可大幅度提高服务器负载能力 | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="到现在PHP5.5.x已经发展到5.5.6了，经过半年的发展已经非常稳定，并且解析编译代码的性能比php5.4.x高不少，同时php5.5.x内置了Opcache。使用Opcache可以显著提高PHP服务器的负载能力，大幅度降低语法解析编译所占用的CPU时间。
 
@@ -11,18 +11,20 @@ Zend OPcache 通过 opcode 缓存和优化提供更快的 PHP 执行过程。它
 <meta property="og:type" content="article">
 <meta property="og:title" content="升级到PHP5.5.x可大幅度提高服务器负载能力">
 <meta property="og:url" content="http://yoursite.com/2013/12/08/php-opcache/index.html">
-<meta property="og:site_name" content="漫漫人生路">
+<meta property="og:site_name" content="漫步人生路">
 <meta property="og:description" content="到现在PHP5.5.x已经发展到5.5.6了，经过半年的发展已经非常稳定，并且解析编译代码的性能比php5.4.x高不少，同时php5.5.x内置了Opcache。使用Opcache可以显著提高PHP服务器的负载能力，大幅度降低语法解析编译所占用的CPU时间。
 
 Zend OPcache 通过 opcode 缓存和优化提供更快的 PHP 执行过程。它将预编译的脚本文件存储在共享内存中供以后使用，从">
-<meta property="og:updated_time" content="2016-10-31T04:40:43.000Z">
+<meta property="og:image" content="http://yoursite.com/images/post/opcache-cp.png">
+<meta property="og:updated_time" content="2016-12-18T06:56:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="升级到PHP5.5.x可大幅度提高服务器负载能力">
 <meta name="twitter:description" content="到现在PHP5.5.x已经发展到5.5.6了，经过半年的发展已经非常稳定，并且解析编译代码的性能比php5.4.x高不少，同时php5.5.x内置了Opcache。使用Opcache可以显著提高PHP服务器的负载能力，大幅度降低语法解析编译所占用的CPU时间。
 
 Zend OPcache 通过 opcode 缓存和优化提供更快的 PHP 执行过程。它将预编译的脚本文件存储在共享内存中供以后使用，从">
+<meta name="twitter:image" content="http://yoursite.com/images/post/opcache-cp.png">
   
-    <link rel="alternate" href="/atom.xml" title="漫漫人生路" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -43,7 +45,7 @@ Zend OPcache 通过 opcode 缓存和优化提供更快的 PHP 执行过程。它
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">漫漫人生路</a>
+        <a href="/" id="logo">漫步人生路</a>
       </h1>
       
     </div>
@@ -93,23 +95,37 @@ Zend OPcache 通过 opcode 缓存和优化提供更快的 PHP 执行过程。它
       
         <p>到现在PHP5.5.x已经发展到5.5.6了，经过半年的发展已经非常稳定，并且解析编译代码的性能比php5.4.x高不少，同时php5.5.x内置了Opcache。使用Opcache可以显著提高PHP服务器的负载能力，大幅度降低语法解析编译所占用的CPU时间。</p>
 <blockquote>
-<p>Zend OPcache 通过 opcode 缓存和优化提供更快的 PHP 执行过程。它将预编译的脚本文件存储在共享内存中供以后使用，从而避免了从磁盘读取代码并进行编译的时间消耗。同时，它还应用了一些代码优化模式，使得代码执行更快。<br>使用OPcache只需要编译时增加参数 <code>--enable-opcache</code> 即可。<br>当然不要忘记修改php.ini支持OPcache</p>
+<p>Zend OPcache 通过 opcode 缓存和优化提供更快的 PHP 执行过程。它将预编译的脚本文件存储在共享内存中供以后使用，从而避免了从磁盘读取代码并进行编译的时间消耗。同时，它还应用了一些代码优化模式，使得代码执行更快。</p>
 </blockquote>
+<p>使用OPcache只需要编译时增加参数 <code>--enable-opcache</code> 即可。<br>当然不要忘记修改php.ini支持OPcache</p>
 <pre><code>zend_extension = {PHP_ROO_PATH}/lib/php/extensions/no-debug-non-zts-20121212/opcache.so
 opcache.fast_shutdown=1
-opcache.enable_cli=1  
-</code></pre><p>下面这段是官方推荐的配置参数，可以进一步提升性能：<br>    opcache.memory_consumption=128<br>    opcache.interned_strings_buffer=8<br>    opcache.max_accelerated_files=4000<br>    opcache.revalidate_freq=60<br>    opcache.fast_shutdown=1<br>    opcache.enable_cli= On<br>    opcache.enable= On<br>我做了个简单的测试。<br>我在Codeigniter中新建了一个最简单的Controller用来进行性能测试<br>    class Test extends CI_Controller {</p>
+opcache.enable_cli=1
+</code></pre><p>下面这段是官方推荐的配置参数，可以进一步提升性能：</p>
+<pre><code>opcache.memory_consumption=128
+opcache.interned_strings_buffer=8
+opcache.max_accelerated_files=4000
+opcache.revalidate_freq=60
+opcache.fast_shutdown=1
+opcache.enable_cli= On
+opcache.enable= On
+</code></pre><p>我做了个简单的测试。<br>我在Codeigniter中新建了一个最简单的Controller用来进行性能测试<br>    class Test extends CI_Controller {</p>
 <pre><code>public function index()
 {
 var_dump(&apos;hello world!&apos;);
 }
 </code></pre><p>使用ab进行测试 (ab在Apache的bin目录中)<br>    $ ab -c 50 -n 1000 <a href="http://localhost/index.php/test" target="_blank" rel="external">http://localhost/index.php/test</a></p>
-<p>测试结果<br>    Zend OPcache off    Request per second: 76.51 [#/sec]<br>    Zend OPcache On 使用默认配置 Request per second: 531.42  [#/sec]<br>    Zend OPcache On 使用优化配置  Request per second: 575.66  [#/sec]<br>可以看出使用了Opcache后，性能提高可不是一点点。<br>推荐使用：<a href="https://gist.github.com/ck-on/4959032" target="_blank" rel="external">Zend Opcache 控制面板</a>,效果如下图：<br>![Opcache](/images/post/opcache-cp.pngNaN</p>
+<p>测试结果</p>
+<pre><code>Zend OPcache off    Request per second: 76.51 [#/sec]
+Zend OPcache On 使用默认配置 Request per second: 531.42  [#/sec]
+Zend OPcache On 使用优化配置  Request per second: 575.66  [#/sec]
+</code></pre><p>可以看出使用了Opcache后，性能提高可不是一点点。</p>
+<p>推荐使用：<a href="https://gist.github.com/ck-on/4959032" target="_blank" rel="external">Zend Opcache 控制面板</a>,效果如下图：<br><img src="/images/post/opcache-cp.png" alt="Opcache"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/08/php-opcache/" data-id="ciwu9qbhg003ctfq2biq0jd0h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/12/08/php-opcache/" data-id="ciwuaqym8001w8nq2cihurwpz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>

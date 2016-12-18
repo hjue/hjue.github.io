@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello Wax For iPhone App | 漫漫人生路</title>
+  <title>Hello Wax For iPhone App | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Wax是什么?Wax是一个框架，让你可以用Lua开发原生的iPhone应用。Wax把Lua和Objetive-C的类库 连接起来，也就是说，你可以用Lua使用任何的Objective-C类及框架。
 为什么使用Wax?
@@ -14,14 +14,16 @@ Wax是免费的、开源的。你总是可以改动源代码，以满足自己�
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hello Wax For iPhone App">
 <meta property="og:url" content="http://yoursite.com/2013/12/07/hello-wax-iphone-app/index.html">
-<meta property="og:site_name" content="漫漫人生路">
+<meta property="og:site_name" content="漫步人生路">
 <meta property="og:description" content="Wax是什么?Wax是一个框架，让你可以用Lua开发原生的iPhone应用。Wax把Lua和Objetive-C的类库 连接起来，也就是说，你可以用Lua使用任何的Objective-C类及框架。
 为什么使用Wax?
 Wax是免费的、开源的。你总是可以改动源代码，以满足自己的需要。
 用Lua这种高效脚本语言编写代码可以大大节省时间
 可以使用所有现有的Objective-C库
 可以让你的App在线更">
-<meta property="og:updated_time" content="2016-10-31T04:40:43.000Z">
+<meta property="og:image" content="http://yoursite.com/images/post/wax-add-framework.png">
+<meta property="og:image" content="http://yoursite.com/images/post/wax-ios-screenshot.png">
+<meta property="og:updated_time" content="2016-12-18T06:57:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello Wax For iPhone App">
 <meta name="twitter:description" content="Wax是什么?Wax是一个框架，让你可以用Lua开发原生的iPhone应用。Wax把Lua和Objetive-C的类库 连接起来，也就是说，你可以用Lua使用任何的Objective-C类及框架。
@@ -30,8 +32,9 @@ Wax是免费的、开源的。你总是可以改动源代码，以满足自己�
 用Lua这种高效脚本语言编写代码可以大大节省时间
 可以使用所有现有的Objective-C库
 可以让你的App在线更">
+<meta name="twitter:image" content="http://yoursite.com/images/post/wax-add-framework.png">
   
-    <link rel="alternate" href="/atom.xml" title="漫漫人生路" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -52,7 +55,7 @@ Wax是免费的、开源的。你总是可以改动源代码，以满足自己�
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">漫漫人生路</a>
+        <a href="/" id="logo">漫步人生路</a>
       </h1>
       
     </div>
@@ -111,13 +114,30 @@ Wax是免费的、开源的。你总是可以改动源代码，以满足自己�
 </blockquote>
 </li>
 </ul>
-<p>解压缩wax.framework.zip，将wax.framework添加到项目中，选择“Copy items into destination group’s folder”复选框<br>![Wax Add Framework](/images/post/wax-add-framework.pngNaN<br>AppDelegate.h文件，导入Wax包头文件：</p>
+<p>解压缩wax.framework.zip，将wax.framework添加到项目中，选择“Copy items into destination group’s folder”复选框<br><img src="/images/post/wax-add-framework.png" alt="Wax Add Framework"><br>AppDelegate.h文件，导入Wax包头文件：</p>
 <pre><code># import &lt;wax/wax.h&gt;
-</code></pre><p>AppDelegate.m文件，在application:didFinishLaunchingWithOptions:方法中，[self.windowmakeKeyAndVisible];和return YES;之间，添加代码：<br>    wax_start(“init.lua”, nil);<br>项目中新建文件init.lua：<br>    require “ViewController”<br>    viewController = ViewController:init()<br>    window = UIApplication:sharedApplication():keyWindow()<br>    window:setRootViewController(viewController)</p>
-<p>项目中新建文件ViewController.lua：<br>    waxClass{“ViewController”, UIViewController}<br>    function viewDidLoad(self)<br>    self.super:viewDidLoad(self)<br>    local label = UILabel:initWithFrame(CGRect(0, 120, 320, 40))<br>    label:setColor(UIColor:blackColor())<br>    label:setText(“Hello Wax!”)<br>    label:setTextAlignment(UITextAlignmentCenter)<br>    local font = UIFont:fontWithName_size(“Helvetica-Bold”,50)<br>    label:setFont(font)<br>    self:view():addSubview(label)<br>    end</p>
-<p>运行，搞定，Hello Wax！<br>![Wax Ios Screenshot](/images/post/wax-ios-screenshot.pngNaN</p>
-<h3 id="关于Wax的语法"><a href="#关于Wax的语法" class="headerlink" title="关于Wax的语法"></a>关于Wax的语法</h3><p>Lua中的函数名称不能有冒号。为了补偿这个差异，凡是Objective-C中隔开方法名称的地方，在Lua中都换成下划线。比如说以上程序的UIFont:fontWithName_size(“Helvetica-Bold”,50)对应于Objective-C的[UIFont fontWithName:@”Helvetica-Bold” size:50]<br>Lua没有像Objective-C那样的继承体系。Lua中根本没有类。<br>想通过Lua创建一个Objective-C类，就要使用<code>waxClass{“CLASS NAME”, “PARENT_CLASS”}</code>这个函数。你添加到该Lua文件的所有之后的函数(在同一个文件里面)都会作为实例方法，自动添加到新的类。<br>    waxClass{“ViewController”, UIViewController}</p>
-<p>Wax不支持Objective-C属性。只能使用<code>View:setFrame(someFrame)</code>,不能使用<code>someView.frame</code></p>
+</code></pre><p>AppDelegate.m文件，在application:didFinishLaunchingWithOptions:方法中，[self.windowmakeKeyAndVisible];和return YES;之间，添加代码：<br>    wax_start(“init.lua”, nil);<br>项目中新建文件init.lua：</p>
+<pre><code>require &quot;ViewController&quot;
+viewController = ViewController:init()
+window = UIApplication:sharedApplication():keyWindow()
+window:setRootViewController(viewController)
+</code></pre><p>项目中新建文件ViewController.lua：</p>
+<pre><code>waxClass{&quot;ViewController&quot;, UIViewController}
+function viewDidLoad(self)
+self.super:viewDidLoad(self)
+local label = UILabel:initWithFrame(CGRect(0, 120, 320, 40))
+label:setColor(UIColor:blackColor())
+label:setText(&quot;Hello Wax!&quot;)
+label:setTextAlignment(UITextAlignmentCenter)
+local font = UIFont:fontWithName_size(&quot;Helvetica-Bold&quot;,50)
+label:setFont(font)
+self:view():addSubview(label)
+end
+</code></pre><p>运行，搞定，Hello Wax！</p>
+<p><img src="/images/post/wax-ios-screenshot.png" alt="Wax Ios Screenshot"></p>
+<h3 id="关于Wax的语法"><a href="#关于Wax的语法" class="headerlink" title="关于Wax的语法"></a>关于Wax的语法</h3><p>Lua中的函数名称不能有冒号。为了补偿这个差异，凡是Objective-C中隔开方法名称的地方，在Lua中都换成下划线。比如说以上程序的UIFont:fontWithName_size(“Helvetica-Bold”,50)对应于Objective-C的[UIFont fontWithName:@”Helvetica-Bold” size:50]<br>Lua没有像Objective-C那样的继承体系。Lua中根本没有类。<br>想通过Lua创建一个Objective-C类，就要使用<code>waxClass{“CLASS NAME”, “PARENT_CLASS”}</code>这个函数。你添加到该Lua文件的所有之后的函数(在同一个文件里面)都会作为实例方法，自动添加到新的类。</p>
+<pre><code>waxClass{&quot;ViewController&quot;, UIViewController}
+</code></pre><p>Wax不支持Objective-C属性。只能使用<code>View:setFrame(someFrame)</code>,不能使用<code>someView.frame</code></p>
 <h3 id="Hello-Wax-的代码"><a href="#Hello-Wax-的代码" class="headerlink" title="Hello Wax 的代码"></a>Hello Wax 的代码</h3><div class="github-widget" data-repo="hjue/HelloWax"></div>
 
 <h3 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h3><p><a href="https://github.com/probablycorey/wax" target="_blank" rel="external">Wax</a><br><a href="https://github.com/probablycorey/wax" target="_blank" rel="external">https://github.com/probablycorey/wax</a><br><a href="https://github.com/mmin18/WaxPatch" target="_blank" rel="external">WaxPatch</a> 让你能够使用Wax动态的改变iOS APP的行为<br><a href="https://github.com/mmin18/WaxPatch" target="_blank" rel="external">https://github.com/mmin18/WaxPatch</a><br><a href="http://www.cnblogs.com/ly4cn/archive/2006/08/04/467550.html" target="_blank" rel="external">Lua语法说明</a><br><a href="http://www.cnblogs.com/ly4cn/archive/2006/08/04/467550.html" target="_blank" rel="external">http://www.cnblogs.com/ly4cn/archive/2006/08/04/467550.html</a></p>
@@ -125,7 +145,7 @@ Wax是免费的、开源的。你总是可以改动源代码，以满足自己�
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/12/07/hello-wax-iphone-app/" data-id="ciwu9kihl002otfq2ybmkx1et" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/12/07/hello-wax-iphone-app/" data-id="ciwuaqykr000g8nq2ztkcyyjk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lua/">Lua</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Wax/">Wax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>

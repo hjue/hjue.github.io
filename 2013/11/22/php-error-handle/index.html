@@ -3,41 +3,45 @@
 <head>
   <meta charset="utf-8">
   
-  <title>PHP错误处理 | 漫漫人生路</title>
+  <title>PHP错误处理 | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="程序一定会有错误的时候天才的程序员说，我的程序绝对OK，没有错误，我从不处理错误。的确，天才程序员的程序从来没有错误，但程序只要运行，就会有错误！不管你信不信，我反正是信的。错误不只是来自于程序逻辑，更多的来自于环境：
 
 数据库连接数太多，程序连接数据库失败
 网络连接故障，连接缓存服务器失败
-Redis缓存已满，无法写入 
+Redis缓存已满，无法写入
 合作方接口异常，无法正常响应
 
 ……太多了，变化的环境总是挑战我的想象力。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP错误处理">
 <meta property="og:url" content="http://yoursite.com/2013/11/22/php-error-handle/index.html">
-<meta property="og:site_name" content="漫漫人生路">
+<meta property="og:site_name" content="漫步人生路">
 <meta property="og:description" content="程序一定会有错误的时候天才的程序员说，我的程序绝对OK，没有错误，我从不处理错误。的确，天才程序员的程序从来没有错误，但程序只要运行，就会有错误！不管你信不信，我反正是信的。错误不只是来自于程序逻辑，更多的来自于环境：
 
 数据库连接数太多，程序连接数据库失败
 网络连接故障，连接缓存服务器失败
-Redis缓存已满，无法写入 
+Redis缓存已满，无法写入
 合作方接口异常，无法正常响应
 
 ……太多了，变化的环境总是挑战我的想象力。">
-<meta property="og:updated_time" content="2016-12-18T06:27:21.000Z">
+<meta property="og:image" content="http://yoursite.com/images/post/php-error-1.png">
+<meta property="og:image" content="http://yoursite.com/images/post/php-error-2.png">
+<meta property="og:image" content="http://yoursite.com/images/post/php-error-3.png">
+<meta property="og:updated_time" content="2016-12-18T06:56:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP错误处理">
 <meta name="twitter:description" content="程序一定会有错误的时候天才的程序员说，我的程序绝对OK，没有错误，我从不处理错误。的确，天才程序员的程序从来没有错误，但程序只要运行，就会有错误！不管你信不信，我反正是信的。错误不只是来自于程序逻辑，更多的来自于环境：
 
 数据库连接数太多，程序连接数据库失败
 网络连接故障，连接缓存服务器失败
-Redis缓存已满，无法写入 
+Redis缓存已满，无法写入
 合作方接口异常，无法正常响应
 
 ……太多了，变化的环境总是挑战我的想象力。">
+<meta name="twitter:image" content="http://yoursite.com/images/post/php-error-1.png">
   
-    <link rel="alternate" href="/atom.xml" title="漫漫人生路" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -58,7 +62,7 @@ Redis缓存已满，无法写入
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">漫漫人生路</a>
+        <a href="/" id="logo">漫步人生路</a>
       </h1>
       
     </div>
@@ -110,7 +114,7 @@ Redis缓存已满，无法写入
 <ul>
 <li>数据库连接数太多，程序连接数据库失败</li>
 <li>网络连接故障，连接缓存服务器失败</li>
-<li>Redis缓存已满，无法写入 </li>
+<li>Redis缓存已满，无法写入</li>
 <li>合作方接口异常，无法正常响应</li>
 </ul>
 <p>……<br>太多了，变化的环境总是挑战我的想象力。</p>
@@ -195,31 +199,33 @@ error_reporting = E_ALL &amp; ~E_DEPRECATED &amp; ~E_STRICT
 //Notice: Undefined variable: a in Command line code on line 1
 </code></pre><h4 id="E-PARSE"><a href="#E-PARSE" class="headerlink" title="E_PARSE"></a>E_PARSE</h4><pre><code>php -r &apos;error_reporting(E_ERROR);echo 0&apos;
 //Parse error: syntax error, unexpected end of file, expecting &apos;,&apos; or &apos;;&apos; in Command line code on line 1
-</code></pre><h4 id="E-USER-WARNING"><a href="#E-USER-WARNING" class="headerlink" title="E_USER_WARNING"></a>E_USER_WARNING</h4><pre><code>php -r &apos;error_reporting(E_ERROR);trigger_error(&quot;Value must be 1&quot;,E_USER_WARNING);&apos; 
+</code></pre><h4 id="E-USER-WARNING"><a href="#E-USER-WARNING" class="headerlink" title="E_USER_WARNING"></a>E_USER_WARNING</h4><pre><code>php -r &apos;error_reporting(E_ERROR);trigger_error(&quot;Value must be 1&quot;,E_USER_WARNING);&apos;
 //Warning: Value must be 1 in Command line code on line 1
-</code></pre><h4 id="E-USER-ERROR"><a href="#E-USER-ERROR" class="headerlink" title="E_USER_ERROR"></a>E_USER_ERROR</h4><pre><code>php -r &apos;error_reporting(E_ERROR);trigger_error(&quot;Value must be 1&quot;,E_USER_ERROR);&apos;     
+</code></pre><h4 id="E-USER-ERROR"><a href="#E-USER-ERROR" class="headerlink" title="E_USER_ERROR"></a>E_USER_ERROR</h4><pre><code>php -r &apos;error_reporting(E_ERROR);trigger_error(&quot;Value must be 1&quot;,E_USER_ERROR);&apos;
 //Fatal error: Value must be 1 in Command line code on line 1
-</code></pre><h3 id="E-USER-NOTICE"><a href="#E-USER-NOTICE" class="headerlink" title="E_USER_NOTICE"></a>E_USER_NOTICE</h3><pre><code>php -r &apos;error_reporting(E_ERROR);trigger_error(&quot;Value must be 1&quot;,E_USER_NOTICE);&apos;     
+</code></pre><h3 id="E-USER-NOTICE"><a href="#E-USER-NOTICE" class="headerlink" title="E_USER_NOTICE"></a>E_USER_NOTICE</h3><pre><code>php -r &apos;error_reporting(E_ERROR);trigger_error(&quot;Value must be 1&quot;,E_USER_NOTICE);&apos;
 //Notice: Value must be 1 in Command line code on line 1
 </code></pre><h4 id="E-ERROR"><a href="#E-ERROR" class="headerlink" title="E_ERROR"></a>E_ERROR</h4><pre><code>php -r &apos;error_reporting(E_ERROR);$a=null;echo $a-&gt;method();&apos;
 //Fatal error: Call to a member function method() on a non-object in Command line code on line 1
 
-php -r &apos;error_reporting(E_ERROR);require_once(&quot;test.php&quot;);&apos; 
+php -r &apos;error_reporting(E_ERROR);require_once(&quot;test.php&quot;);&apos;
 //Warning: require_once(test.php): failed to open stream: No such file or directory in Command line code on line 1
 //Fatal error: require_once(): Failed opening required &apos;test.php&apos; in Command line code on line 1
 </code></pre><h3 id="用set-error-handler捕获错误"><a href="#用set-error-handler捕获错误" class="headerlink" title="用set_error_handler捕获错误"></a>用set_error_handler捕获错误</h3><p>set_error_handler：设置一个用户的函数来处理脚本中出现的错误。<br>使用set_error_handler捕获程序错误<br>    php -r ‘error_reporting(E_ERROR);<br>    set_error_handler(function($errno, $errstr, $errfile, $errline){var_dump($errno, $errstr, $errfile, $errline);});<br>    require(“test.php”);<br>    echo “finished!”;’</p>
-<p>  ![Php Error 1](/images/post/php-error-1.pngNaN<br>从截图中看到，有var_dump的信息，说明set_error_handler捕获到了错误。并且没有看到我需要输出的finished!,说明程序在遇到错误终止了，没有继续运行。<br>set_error_handler不是万能的，也有捕获不到的时候</p>
+<p>  <img src="/images/post/php-error-1.png" alt="Php Error 1"></p>
+<p>从截图中看到，有var_dump的信息，说明set_error_handler捕获到了错误。并且没有看到我需要输出的finished!,说明程序在遇到错误终止了，没有继续运行。<br>set_error_handler不是万能的，也有捕获不到的时候</p>
 <pre><code>php -r &apos;error_reporting(E_ERROR);
 set_error_handler(function($errno, $errstr, $errfile, $errline){var_dump($errno, $errstr, $errfile, $errline);});
 $a=null;$a-&gt;method();
 echo &quot;finished!&quot;;&apos;
-</code></pre><p>  ![Php Error 1](/images/post/php-error-2.pngNaN<br>  截图中没有看到var_dump信息，说明set_error_handler没有捕获到错误。这时候要用register_shutdown_function+error_get_last来捕获    </p>
+</code></pre><p>  <img src="/images/post/php-error-2.png" alt="Php Error 1"></p>
+<p>  截图中没有看到var_dump信息，说明set_error_handler没有捕获到错误。这时候要用register_shutdown_function+error_get_last来捕获</p>
 <pre><code>php -r &apos;error_reporting(E_ERROR);
 function logerror() {if (($error = error_get_last())) {var_dump($error);}}
 register_shutdown_function(&apos;logerror&apos;);
 $a=null;$a-&gt;method();
 echo &quot;finished!&quot;;&apos;
-</code></pre><p>  ![Php Error 1](/images/post/php-error-3.pngNaN </p>
+</code></pre><p>  <img src="/images/post/php-error-3.png" alt="Php Error 1"></p>
 <h3 id="错误日志集中管理"><a href="#错误日志集中管理" class="headerlink" title="错误日志集中管理"></a>错误日志集中管理</h3><p>错误日志集中管理的平台很多，我们无需多造个轮子。我的选择是<a href="https://github.com/getsentry/sentry‎" target="_blank" rel="external">Sentry</a>。</p>
 <blockquote>
 <p>Sentry是一个的错误日志服务器，可以将程序错误的详细情况集中捕获，并提供一个很漂亮的Web界面来浏览错误。 Sentry本身是用python写的，但它支持记录python、php、ruby、iOS等多种语言的错误。</p>
@@ -228,7 +234,7 @@ echo &quot;finished!&quot;;&apos;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/11/22/php-error-handle/" data-id="ciwu9t441003itfq2fj2dscxe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2013/11/22/php-error-handle/" data-id="ciwuaqymb00218nq2fnd38f4m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sentry/">Sentry</a></li></ul>

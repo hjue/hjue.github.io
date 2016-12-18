@@ -3,23 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>微信公众平台开发 - 客服接口 | 漫漫人生路</title>
+  <title>微信公众平台开发 - 客服接口 | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="发送客服消息当用户主动发消息给公众号的时候（包括发送信息、点击自定义菜单、订阅事件、扫描二维码事件、支付成功事件、用户维权），微信将会把消息数据推送给开发者，开发者在一段时间内（目前修改为48小时）可以调用客服消息接口，通过POST一个JSON数据包来发送消息给普通用户， 在48小时内不限制发送次数。此接口主要用于客服等有人工消息处理环节的功能，方便开发者为用户提供更加优质的服务。
 接口调用请求说">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信公众平台开发 - 客服接口">
 <meta property="og:url" content="http://yoursite.com/2014/08/13/wechat-customer-service/index.html">
-<meta property="og:site_name" content="漫漫人生路">
+<meta property="og:site_name" content="漫步人生路">
 <meta property="og:description" content="发送客服消息当用户主动发消息给公众号的时候（包括发送信息、点击自定义菜单、订阅事件、扫描二维码事件、支付成功事件、用户维权），微信将会把消息数据推送给开发者，开发者在一段时间内（目前修改为48小时）可以调用客服消息接口，通过POST一个JSON数据包来发送消息给普通用户， 在48小时内不限制发送次数。此接口主要用于客服等有人工消息处理环节的功能，方便开发者为用户提供更加优质的服务。
 接口调用请求说">
-<meta property="og:updated_time" content="2016-12-18T06:39:03.000Z">
+<meta property="og:image" content="http://yoursite.com/images/post/0d44309e727f68110f68ed494429ce3f.png">
+<meta property="og:updated_time" content="2016-12-18T06:55:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信公众平台开发 - 客服接口">
 <meta name="twitter:description" content="发送客服消息当用户主动发消息给公众号的时候（包括发送信息、点击自定义菜单、订阅事件、扫描二维码事件、支付成功事件、用户维权），微信将会把消息数据推送给开发者，开发者在一段时间内（目前修改为48小时）可以调用客服消息接口，通过POST一个JSON数据包来发送消息给普通用户， 在48小时内不限制发送次数。此接口主要用于客服等有人工消息处理环节的功能，方便开发者为用户提供更加优质的服务。
 接口调用请求说">
+<meta name="twitter:image" content="http://yoursite.com/images/post/0d44309e727f68110f68ed494429ce3f.png">
   
-    <link rel="alternate" href="/atom.xml" title="漫漫人生路" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -40,7 +42,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">漫漫人生路</a>
+        <a href="/" id="logo">漫步人生路</a>
       </h1>
       
     </div>
@@ -91,7 +93,8 @@
         <h2 id="发送客服消息"><a href="#发送客服消息" class="headerlink" title="发送客服消息"></a>发送客服消息</h2><p>当用户主动发消息给公众号的时候（包括发送信息、点击自定义菜单、订阅事件、扫描二维码事件、支付成功事件、用户维权），微信将会把消息数据推送给开发者，开发者在一段时间内（目前修改为48小时）可以调用客服消息接口，通过POST一个JSON数据包来发送消息给普通用户，<strong> 在48小时内不限制发送次数</strong>。此接口主要用于客服等有人工消息处理环节的功能，方便开发者为用户提供更加优质的服务。</p>
 <h3 id="接口调用请求说明"><a href="#接口调用请求说明" class="headerlink" title="接口调用请求说明"></a>接口调用请求说明</h3><pre><code>http请求方式: POST
 https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=ACCESS_TOKEN
-</code></pre><p>若发送对象在48小时内没有给公众号发送消息，系统会返回错误。注意Http Status依然返回200，这点不符合Restful精神啊<br>![image](/images/post/0d44309e727f68110f68ed494429ce3f.pngNaN</p>
+</code></pre><p>若发送对象在48小时内没有给公众号发送消息，系统会返回错误。注意Http Status依然返回200，这点不符合Restful精神啊</p>
+<p><img src="/images/post/0d44309e727f68110f68ed494429ce3f.png" alt="image"></p>
 <h3 id="发送文本消息"><a href="#发送文本消息" class="headerlink" title="发送文本消息"></a>发送文本消息</h3><pre><code>{
     “touser”:”OPENID”,
     “msgtype”:”text”,
@@ -117,7 +120,7 @@ https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=ACCESS_TOKEN
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/08/13/wechat-customer-service/" data-id="ciwua84xc0040tfq28g38tbx1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/08/13/wechat-customer-service/" data-id="ciwuaqymv002n8nq212c8nur5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/公众平台/">公众平台</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信/">微信</a></li></ul>
