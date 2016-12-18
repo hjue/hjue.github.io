@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>漫漫人生路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="漫漫人生路">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="漫漫人生路">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="漫漫人生路">
+  
+    <link rel="alternate" href="/atom.xml" title="漫漫人生路" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">漫漫人生路</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-embedding-python" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/04/embedding-python/" class="article-date">
+  <time datetime="2013-12-03T16:00:00.000Z" itemprop="datePublished">2013-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/04/embedding-python/">Xcode5中Objective-c项目嵌入Python</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Xcode4中在objc项目中使用Python，只需用引入Python.framework即可。<br>Xcode5已不能使用Python.framework了，需用通过下边的步骤添加对Python的支持。</p>
+<pre><code>$ python2.7-config --cflags
+-I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7 -I/System/Library/Frameworks/Python.framework/Versions/2.7/include/python2.7 -fno-strict-aliasing -fno-common -dynamic -arch x86_64 -arch i386 -g -Os -pipe -fno-common -fno-strict-aliasing -fwrapv -mno-fused-madd -DENABLE_DTRACE -DMACOSX -DNDEBUG -Wall -Wstrict-prototypes -Wshorten-64-to-32 -DNDEBUG -g -fwrapv -Os -Wall -Wstrict-prototypes -DENABLE_DTRACE
+</code></pre><p><img src="/images/post/embedding-python-1.png" alt="embedding-python" title="Header Search Paths"></p>
+<p>把-I参数后边的路径复制到Build Settings/Header Search Paths中</p>
+<pre><code>$python2.7-config --ldflags
+-L/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/config -ldl -framework CoreFoundation -lpython2.7
+</code></pre><p><img src="/images/post/embedding-python-2.png" alt="embedding-python"></p>
+<p>在Finder中打开-L参数后边的路径，把libpython2.7.dylib 拖拽到Xcode项目的Framework中，在确认框中选择链接文件而不是复制。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/12/04/embedding-python/" data-id="ciwu9c2mk001itfq2gtub2lll" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-sentry-log-php" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/11/28/sentry-log-php/" class="article-date">
+  <time datetime="2013-11-27T16:00:00.000Z" itemprop="datePublished">2013-11-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/11/28/sentry-log-php/">用sentry管理PHP错误日志</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Sentry是个很好用的错误日志服务器，可以将程序错误的详细情况集中捕获，并提供一个很漂亮的Web界面来浏览错误。<br>如果你还没用确定Sentry是否适合你，可以先试用Sentry的<a href="https://getsentry.com/welcome/" target="_blank" rel="external">在线服务</a>，<a href="https://getsentry.com/welcome/" target="_blank" rel="external">https://getsentry.com/welcome/</a> 。<br>Sentry本身是用python写的，但它支持记录Python、PHP、Ruby、iOS、Javascript、Java、Node.js等多种语言的错误。<br>在浏览器中就可以查看项目的错误</p>
+<p><img src="/images/post/sentry-1.png" alt="Sentry 1"></p>
+<p>记录了错误调用栈信息，很快定位到错误</p>
+<p><img src="/images/post/sentry-2.png" alt="Sentry 2"></p>
+<p>记录了错误发生时浏览器信息，同时还可以记录自定义信息</p>
+<p><img src="/images/post/sentry-2.png" alt="Sentry 3"></p>
+<h3 id="安装-Sentry"><a href="#安装-Sentry" class="headerlink" title="安装 Sentry"></a>安装 Sentry</h3><p>Sentry需要Python2.5以上版本。注意Sentry并不支持Python3。<br>    $ sudo easy_install -UZ sentry<br>Sentry默认使用sqlite记录错误日志，生产环境下建议使用MySQL。使用以下命令安装Python的MySQL支持。</p>
+<pre><code>$ sudo easy_install -UZ sentry[mysql]
+</code></pre><blockquote>
+<p>如果安装出错，可以用 <code>sudo easy_install -UZ MySQL-python</code> 命令直接安装Python的MySQL支持，<br>如果安装MySQL-python出错，安装下列安装包后在进行安装MySQL-python</p>
+<pre><code>sudo yum install python-devel
+sudo yum install mysql-devel
+sudo yum install libxslt-devel libxml2-devel
+</code></pre></blockquote>
+<h3 id="配置-Sentry"><a href="#配置-Sentry" class="headerlink" title="配置 Sentry"></a>配置 Sentry</h3><p>安装好之后使用以下命令建立配置文件：<br>    $ mkdir ~/.sentry<br>    $ sentry init ~/.sentry/sentry.conf.py<br>然后打开~/.sentry/sentry.conf.py，参照下边配置修改。</p>
+<blockquote>
+<p>daemon: True， 使sentry以daemon模式运行。<br>sentry默认使用9000端口，我的9000端口已经被php-fpm占用，因此改用9111端口。<br>    SENTRY_URL_PREFIX = ‘<a href="http://sentry:9111" target="_blank" rel="external">http://sentry:9111</a>‘</p>
+</blockquote>
+<pre><code>SENTRY_WEB_HOST = &apos;0.0.0.0&apos;
+SENTRY_WEB_PORT = 9111
+SENTRY_WEB_OPTIONS = {
+    &apos;daemon&apos;:True,
+    &apos;workers&apos;: 3,  # the number of gunicorn workers
+    &apos;secure_scheme_headers&apos;: {&apos;X-FORWARDED-PROTO&apos;: &apos;https&apos;},
+}
+</code></pre><blockquote>
+<p> 在mysql服务器上新建sentry数据库，修改mysql相关配置<br>    DATABASES = {<br>        ‘default’: {<br>        ‘ENGINE’: ‘django.db.backends.mysql’,<br>        ‘NAME’: ‘sentry’,<br>        ‘USER’: ‘sentry’,<br>        ‘PASSWORD’: ‘sentry’,<br>        ‘HOST’: ‘192.168.100.1’,<br>        ‘PORT’: 3306,<br>        }<br>    }<br>修改好配置文件后，在用户根目录执行<code>sentry start</code> 启动服务器即可。第一次运行需要建立初始化数据，如新建管理员等操作，按照提示操作即可。<br>使用 <code>sentry help</code>查看更多使用方法。<code>sentry  send_fake_data</code> 发生测试数据。<br>我在第一次启动sentry时遭遇下边的错误提示</p>
+</blockquote>
+<pre><code>DatabaseError: (1071, &apos;Specified key was too long; max key length is 1000 bytes&apos;)
+</code></pre><p>产生这个错误的原因是我的MySQL数据库默认存储引擎是MyISAM。MyISAM存储引擎在创建索引的时候，索引键长度是有一个较为严格的长度限制的，所有索引键最大长度总和不能超过1000，而且不是实际数据长度的总和，而是索引键字段定义长度的总和。</p>
+<p>sentry中有些表的索引键长度超过了1k，设置存储引擎为InnoDB即可解决问题。<br>连接mysql执行下面命令，设置默认存储引擎为InnoDB</p>
+<pre><code>SET global storage_engine=InnoDB;
+</code></pre><h3 id="使用Nginx作为前端代理服务器"><a href="#使用Nginx作为前端代理服务器" class="headerlink" title="使用Nginx作为前端代理服务器"></a>使用Nginx作为前端代理服务器</h3><pre><code>location / {
+  proxy_pass         http://sentry-ipaddress:9111;
+  proxy_redirect     off;
+  proxy_set_header   Host              $host;
+  proxy_set_header   X-Real-IP         $remote_addr;
+  proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
+  proxy_set_header   X-Forwarded-Proto $scheme;
+}
+</code></pre><h3 id="使用Sentry的PHP客户端"><a href="#使用Sentry的PHP客户端" class="headerlink" title="使用Sentry的PHP客户端"></a>使用Sentry的PHP客户端</h3><h4 id="安装Raven-PHP"><a href="#安装Raven-PHP" class="headerlink" title="安装Raven-PHP"></a>安装Raven-PHP</h4><ol>
+<li>在<a href="https://github.com/getsentry/raven-php" target="_blank" rel="external">Raven-PHP GitHub</a>下载项目，把raven-php/lib/Raven复制到你的项目中</li>
+<li><p>初始化Raven Cient</p>
+<pre><code>require(&apos;/path/to/raven/Autoloader.php&apos;);
+Raven_Autoloader::register();
+$dsn = &quot;https://96320c73c71946f2b1499b511a5311bf:ee9dcc397c354942b5295dd00c284e06@sentry:9111/2&quot;;
+$client = new Raven_Client();
+</code></pre></li>
+<li><p>设置PHP 错误处理的handler  </p>
+<pre><code>$error_handler = new Raven_ErrorHandler($client);
+set_error_handler(array($error_handler, &apos;handleError&apos;));
+set_exception_handler(array($error_handler, &apos;handleException&apos;));
+</code></pre></li>
+</ol>
+<p>以上代码有些fatal错误是无法记录的，详细原因见<a href="http://hjue.me/post/php-error-handle" target="_blank" rel="external">这里</a>。<br>下边是我为Codeigniter写的记录Log的Library。</p>
+<p><script src="https://gist.github.com/hjue/7686962.js"></script></p>
+<h3 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h3><p><a href="http://sentry.readthedocs.org/en/latest/" target="_blank" rel="external">Sentry的官方文档</a>  <a href="http://sentry.readthedocs.org/en/latest/" target="_blank" rel="external">http://sentry.readthedocs.org/en/latest/</a><br><a href="https://github.com/getsentry/raven-php" target="_blank" rel="external">Sentry的PHP客户端</a> <a href="https://github.com/getsentry/raven-php" target="_blank" rel="external">https://github.com/getsentry/raven-php</a><br><a href="https://github.com/getsentry/raven-ruby" target="_blank" rel="external">Sentry的Ruby客户端</a> <a href="https://github.com/getsentry/raven-ruby" target="_blank" rel="external">https://github.com/getsentry/raven-ruby</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/11/28/sentry-log-php/" data-id="ciwua0z81003ttfq2s6vrrdc4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sentry/">Sentry</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-change-default-font-mavericks" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/11/25/change-default-font-mavericks/" class="article-date">
+  <time datetime="2013-11-24T16:00:00.000Z" itemprop="datePublished">2013-11-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/11/25/change-default-font-mavericks/">修改Mavericks默认字体</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Macbook Pro升级到Mavericks之后，发现字体严重变虚。在weiphone上发现很多人遇到了同样的问题，都是通过修改字体解决的。retina屏的用户没有此问题。<br>通过下边的步骤我将STHeitiSC(华文黑体)改成冬青黑体(Hiragino Sans GB)<br> 打开终端 , 修改字体配置文件DefaultFontFallbacks.plist 和 DefaultFontFallbacks.plist</p>
+<blockquote>
+<p>plist是苹果专有的二进制格式，需要支持此格式的编辑器修改。推荐用TextMate或者Xcode修改。<br>    cd /System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreText.framework/Resources/</p>
+</blockquote>
+<pre><code>mate DefaultFontFallbacks.plist
+# 将 STHeitiSC-Light 替换为 HiraginoSansGB-W3
+
+mate CTPresetFallbacks.plist
+将 STHeitiSC-Light 替换为 HiraginoSansGB-W3
+将 STHeitiSC-Medium 替换为 HiraginoSansGB-W6
+</code></pre><p>重启机器后，系统字体就变成了冬青黑体。<br>如果遇到字体显示问题，可以打开终端，运行下边命令清除字体缓存。</p>
+<pre><code>sudo atsutil databases -remove
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/11/25/change-default-font-mavericks/" data-id="ciwu9c2m7001ctfq2edssk2qp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-php-error-handle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/11/22/php-error-handle/" class="article-date">
+  <time datetime="2013-11-21T16:00:00.000Z" itemprop="datePublished">2013-11-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/11/22/php-error-handle/">PHP错误处理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="程序一定会有错误的时候"><a href="#程序一定会有错误的时候" class="headerlink" title="程序一定会有错误的时候"></a>程序一定会有错误的时候</h3><p>天才的程序员说，我的程序绝对OK，没有错误，我从不处理错误。的确，天才程序员的程序从来没有错误，但程序只要运行，就会有错误！不管你信不信，我反正是信的。<br>错误不只是来自于程序逻辑，更多的来自于环境：</p>
+<ul>
+<li>数据库连接数太多，程序连接数据库失败</li>
+<li>网络连接故障，连接缓存服务器失败</li>
+<li>Redis缓存已满，无法写入 </li>
+<li>合作方接口异常，无法正常响应</li>
+</ul>
+<p>……<br>太多了，变化的环境总是挑战我的想象力。</p>
+<p>真正的程序员很重视错误处理，让程序固若金汤。真正的PHP程序员哪怕是Notice也不放过 :)<br>首先，要注意和错误有关的PHP配置变量。以下是PHP.ini中的默认值。</p>
+<pre><code>display_errors = Off
+error_reporting = E_ALL &amp; ~E_NOTICE &amp; ~E_STRICT &amp; ~E_DEPRECATED
+</code></pre><p>这是建议开发环境中设置的值：</p>
+<pre><code>display_errors= On
+error_reporting = E_ALL
+</code></pre><p>这是建议服务器环境中设置的值：</p>
+<pre><code>display_errors= Off
+error_reporting = E_ALL &amp; ~E_DEPRECATED &amp; ~E_STRICT
+</code></pre><h3 id="PHP中错误报告的级别"><a href="#PHP中错误报告的级别" class="headerlink" title="PHP中错误报告的级别"></a>PHP中错误报告的级别</h3><p>以下列出常用的错误报告的级别，所有错误报告的级别<a href="http://www.php.net/manual/zh/errorfunc.constants.php" target="_blank" rel="external">点这里</a></p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th style="text-align:left">常量</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:left">E_ERROR</td>
+<td style="text-align:left">致命的运行时错误。后果是导致脚本终止不再继续运行。</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:left">E_WARNING</td>
+<td style="text-align:left">运行时警告 (非致命错误)。仅给出提示信息，但是脚本不会终止运行。</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:left">E_PARSE</td>
+<td style="text-align:left">编译时语法解析错误。解析错误仅仅由分析器产生。</td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align:left">E_NOTICE</td>
+<td style="text-align:left">运行时通知。</td>
+</tr>
+<tr>
+<td>256</td>
+<td style="text-align:left">E_USER_ERROR</td>
+<td style="text-align:left">致命的用户生成的错误。这类似于程序员使用 PHP 函数 trigger_error() 设置的 E_ERROR。</td>
+</tr>
+<tr>
+<td>512</td>
+<td style="text-align:left">E_USER_WARNING</td>
+<td style="text-align:left">非致命的用户生成的警告。这类似于程序员使用 PHP 函数 trigger_error() 设置的 E_WARNING。</td>
+</tr>
+<tr>
+<td>1024</td>
+<td style="text-align:left">E_USER_NOTICE</td>
+<td style="text-align:left">用户生成的通知。这类似于程序员使用 PHP 函数 trigger_error() 设置的 E_NOTICE。</td>
+</tr>
+<tr>
+<td>2048</td>
+<td style="text-align:left">E_STRICT (integer)     启用 PHP 对代码的修改建议，以确保代码具有最佳的互操作性和向前兼容性。</td>
+</tr>
+<tr>
+<td>4096</td>
+<td style="text-align:left">E_RECOVERABLE_ERROR</td>
+<td style="text-align:left">可捕获的致命错误。类似 E_ERROR，但可被用户定义的处理程序捕获。</td>
+</tr>
+<tr>
+<td>8192</td>
+<td style="text-align:left">E_DEPRECATED</td>
+<td style="text-align:left">运行时通知。启用后将会对在未来版本中可能无法正常工作的代码给出警告。</td>
+</tr>
+<tr>
+<td>8191</td>
+<td style="text-align:left">E_ALL</td>
+<td style="text-align:left">所有错误和警告，除级别 E_STRICT 以外。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="E-WARNING"><a href="#E-WARNING" class="headerlink" title="E_WARNING"></a>E_WARNING</h4><pre><code>php -r &apos;error_reporting(E_ERROR);include &quot;test.php&quot;;&apos;
+//Warning: include(test.php): failed to open stream: No such file or directory in Command line code on line 1
+</code></pre><h4 id="E-NOTICE"><a href="#E-NOTICE" class="headerlink" title="E_NOTICE"></a>E_NOTICE</h4><pre><code>php -r &apos;error_reporting(E_ERROR);echo $a[0];&apos;
+//Notice: Undefined variable: a in Command line code on line 1
+</code></pre><h4 id="E-PARSE"><a href="#E-PARSE" class="headerlink" title="E_PARSE"></a>E_PARSE</h4><pre><code>php -r &apos;error_reporting(E_ERROR);echo 0&apos;
+//Parse error: syntax error, unexpected end of file, expecting &apos;,&apos; or &apos;;&apos; in Command line code on line 1
+</code></pre><h4 id="E-USER-WARNING"><a href="#E-USER-WARNING" class="headerlink" title="E_USER_WARNING"></a>E_USER_WARNING</h4><pre><code>php -r &apos;error_reporting(E_ERROR);trigger_error(&quot;Value must be 1&quot;,E_USER_WARNING);&apos; 
+//Warning: Value must be 1 in Command line code on line 1
+</code></pre><h4 id="E-USER-ERROR"><a href="#E-USER-ERROR" class="headerlink" title="E_USER_ERROR"></a>E_USER_ERROR</h4><pre><code>php -r &apos;error_reporting(E_ERROR);trigger_error(&quot;Value must be 1&quot;,E_USER_ERROR);&apos;     
+//Fatal error: Value must be 1 in Command line code on line 1
+</code></pre><h3 id="E-USER-NOTICE"><a href="#E-USER-NOTICE" class="headerlink" title="E_USER_NOTICE"></a>E_USER_NOTICE</h3><pre><code>php -r &apos;error_reporting(E_ERROR);trigger_error(&quot;Value must be 1&quot;,E_USER_NOTICE);&apos;     
+//Notice: Value must be 1 in Command line code on line 1
+</code></pre><h4 id="E-ERROR"><a href="#E-ERROR" class="headerlink" title="E_ERROR"></a>E_ERROR</h4><pre><code>php -r &apos;error_reporting(E_ERROR);$a=null;echo $a-&gt;method();&apos;
+//Fatal error: Call to a member function method() on a non-object in Command line code on line 1
+
+php -r &apos;error_reporting(E_ERROR);require_once(&quot;test.php&quot;);&apos; 
+//Warning: require_once(test.php): failed to open stream: No such file or directory in Command line code on line 1
+//Fatal error: require_once(): Failed opening required &apos;test.php&apos; in Command line code on line 1
+</code></pre><h3 id="用set-error-handler捕获错误"><a href="#用set-error-handler捕获错误" class="headerlink" title="用set_error_handler捕获错误"></a>用set_error_handler捕获错误</h3><p>set_error_handler：设置一个用户的函数来处理脚本中出现的错误。<br>使用set_error_handler捕获程序错误<br>    php -r ‘error_reporting(E_ERROR);<br>    set_error_handler(function($errno, $errstr, $errfile, $errline){var_dump($errno, $errstr, $errfile, $errline);});<br>    require(“test.php”);<br>    echo “finished!”;’</p>
+<p>  ![Php Error 1](/images/post/php-error-1.pngNaN<br>从截图中看到，有var_dump的信息，说明set_error_handler捕获到了错误。并且没有看到我需要输出的finished!,说明程序在遇到错误终止了，没有继续运行。<br>set_error_handler不是万能的，也有捕获不到的时候</p>
+<pre><code>php -r &apos;error_reporting(E_ERROR);
+set_error_handler(function($errno, $errstr, $errfile, $errline){var_dump($errno, $errstr, $errfile, $errline);});
+$a=null;$a-&gt;method();
+echo &quot;finished!&quot;;&apos;
+</code></pre><p>  ![Php Error 1](/images/post/php-error-2.pngNaN<br>  截图中没有看到var_dump信息，说明set_error_handler没有捕获到错误。这时候要用register_shutdown_function+error_get_last来捕获    </p>
+<pre><code>php -r &apos;error_reporting(E_ERROR);
+function logerror() {if (($error = error_get_last())) {var_dump($error);}}
+register_shutdown_function(&apos;logerror&apos;);
+$a=null;$a-&gt;method();
+echo &quot;finished!&quot;;&apos;
+</code></pre><p>  ![Php Error 1](/images/post/php-error-3.pngNaN </p>
+<h3 id="错误日志集中管理"><a href="#错误日志集中管理" class="headerlink" title="错误日志集中管理"></a>错误日志集中管理</h3><p>错误日志集中管理的平台很多，我们无需多造个轮子。我的选择是<a href="https://github.com/getsentry/sentry‎" target="_blank" rel="external">Sentry</a>。</p>
+<blockquote>
+<p>Sentry是一个的错误日志服务器，可以将程序错误的详细情况集中捕获，并提供一个很漂亮的Web界面来浏览错误。 Sentry本身是用python写的，但它支持记录python、php、ruby、iOS等多种语言的错误。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/11/22/php-error-handle/" data-id="ciwu9t441003itfq2fj2dscxe" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sentry/">Sentry</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-ruby-bundle-install-prividge" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/11/14/ruby-bundle-install-prividge/" class="article-date">
+  <time datetime="2013-11-13T16:00:00.000Z" itemprop="datePublished">2013-11-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/11/14/ruby-bundle-install-prividge/">解决Bundle时的权限问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在rails项目运行bundle命令时提示输入root密码</p>
+<p><img src="/images/post/ruby-bundle-install-prividge-1.png" alt="Ruby Bundle Install Prividge 1"></p>
+<p>怎么装个gem也需要root，如果这般以后发布项目都需要root了。<br>一通Google后发现原来gem要装到ruby目录下，由于ruby是系统管理员用root安装的，那个目录普通用户是没有写权限的。<br>运行 <code>gem env</code> 查看INSTALLATION DIRECTORY ，这个目录我是没有写权限的。</p>
+<p><img src="/images/post/ruby-bundle-install-prividge-2.png" alt="Ruby Bundle Install Prividge 1"></p>
+<p>系统管理员太忙了，我们自己搞定吧。</p>
+<pre><code>#指定gem安装的路径
+bundle install --path vendor/bundle
+</code></pre><p><img src="/images/post/ruby-bundle-install-prividge-3.png" alt="Ruby Bundle Install Prividge 1"></p>
+<p>如果在<code>rails new</code>时遇到这个提示可以用<code>--skip-bundle</code>解决此问题。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/11/14/ruby-bundle-install-prividge/" data-id="ciwu9x6ha003qtfq2sc470xyg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby/">Ruby</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-viewport-media-queries" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/11/13/viewport-media-queries/" class="article-date">
+  <time datetime="2013-11-13T09:35:13.000Z" itemprop="datePublished">2013-11-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/11/13/viewport-media-queries/">Viewport &amp; Media Queries</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Viewport"><a href="#Viewport" class="headerlink" title="Viewport"></a>Viewport</h3><p>viewport字面意思为视图窗口，在移动 web 开发中使用。表示将设备浏览器宽度虚拟成一个特定的值（或计算得出），这样利于移动 web 站点跨设备显示效果基本一致。</p>
+<h4 id="width-device-width"><a href="#width-device-width" class="headerlink" title="width=device-width"></a>width=device-width</h4><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
+
+
+
+@viewport {
+width: device-width;
+}  
+</code></pre><h4 id="viewport-target-densitydpi"><a href="#viewport-target-densitydpi" class="headerlink" title="viewport  target-densitydpi"></a>viewport  target-densitydpi</h4><p>现在基本上就不需要target-densitydpi了</p>
+<p>target-densitydpi的值有 device-dpi, high-dpi, medium-dpi, low-dpi.</p>
+<h3 id="manifest文件"><a href="#manifest文件" class="headerlink" title="manifest文件"></a>manifest文件</h3><p>减少请求数，js/css压缩，gzipping，尽量减少DOM操作</p>
+<p>在iOS中有两个meta值，apple-mobile-web-app-capable和apple-mobile-web-app-status-bar-style，这两个会让网页内容以应用程序风格显示，并使状态栏透明。</p>
+<pre><code>&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;
+&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black-translucent&quot;&gt;
+</code></pre><p>Home 界面上的图标</p>
+<p>　　iOS用rel=”apple-touch-icon”,android 用rel=”apple-touch-icon-precomposed”。这样就能在用户把网页存为书签时，在手机HOME界面创建应用程序样式的图标。<br>    　　<br>    <link rel="apple-touch-icon" href="/static/images/identity/HTML5_Badge_64.png"><br>    <link rel="apple-touch-icon-precomposed" href="/static/images/identity/HTML5_Badge_64.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/11/13/viewport-media-queries/" data-id="ciwua3vf0003wtfq2bwfzke0j" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-yum-no-module-named" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/11/08/yum-no-module-named/" class="article-date">
+  <time datetime="2013-11-07T16:00:00.000Z" itemprop="datePublished">2013-11-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/11/08/yum-no-module-named/">解决CentOS的yum不能使用问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="解决CentOS的yum不能使用问题"><a href="#解决CentOS的yum不能使用问题" class="headerlink" title="解决CentOS的yum不能使用问题"></a>解决CentOS的yum不能使用问题</h2><p>运行yum，出现下图的提示。</p>
+<p><img src="/images/post/yum-no-modules.png" alt="Yum No Modules"></p>
+<p>yum是用Python写的，出现这个错误是因为Python版本装的不正确导致。最简单的方法当然是重装。</p>
+<pre><code># 使用CentOS对应的Python安装包
+wget http://mirror.centos.org/centos/6.4/os/x86_64/Packages/python-2.6.6-36.el6.x86_64.rpm
+
+rpm -iv --replacepkgs python-2.6.6-36.el6.x86_64.rpm
+</code></pre><p>PS:附上手动安装yum过程，推荐使用rpm重新安装python来恢复yum。手动安装方式只是备用方案。</p>
+<pre><code>wget http://yum.baseurl.org/download/3.4/yum-3.4.3.tar.gz
+tar xzfv yum-3.4.3.tar.gz
+cd yum-3.4.3
+
+python yummain.py install yum
+
+yum check-update
+yum update
+yum clean all
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/11/08/yum-no-module-named/" data-id="ciwua4pl1003xtfq2vw1a0o1t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-download-header" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/31/download-header/" class="article-date">
+  <time datetime="2013-10-30T16:00:00.000Z" itemprop="datePublished">2013-10-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/31/download-header/">服务器下载文件Http头的设置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="服务器下载文件Http头的设置"><a href="#服务器下载文件Http头的设置" class="headerlink" title="服务器下载文件Http头的设置"></a>服务器下载文件Http头的设置</h2><p>网站提供下载服务时经常需要实现一个强制下载功能（即强制弹出下载对话框），并且文件名保持和用户之前上传时相同。<br>效果如下图：<br><img src="/images/post/content-disposition.png" alt="Content Disposition"></p>
+<h3 id="Content-Disposition"><a href="#Content-Disposition" class="headerlink" title="Content-Disposition"></a>Content-Disposition</h3><p>使用 HTTP Header 的 Content-Disposition: attachment 可以实现下载时强制弹出下载对话框。</p>
+<p>由于HTTP协议规定，通信内容使用US ASCII编码，就是只能使用英文字符集。若要使用其他字符集，必须根据RFC3986使用百分号将字符串编码。</p>
+<pre><code>Content-Disposition: attachment; filename=filename.ext
+Content-Disposition: attachment; filename*=charset&apos;lang&apos;encoded-filename.ext
+</code></pre><p>如果不进行编码会出现,用户保存文件文件名会是乱码。如下图：</p>
+<p><img src="/images/post/content-disposition2.png" alt="Content Disposition"></p>
+<p>不过关于Content-Disposition的<a href="http://tools.ietf.org/html/rfc6266" target="_blank" rel="external">RFC6266规范</a>是2011年6月才纳入HTTP标准。<br>浏览器方面我测试了主流浏览器，Firefox 、 Chrome 、 Opera 、 Safari ，都支持新标准规定的 filename<em>，不出意料，万恶的IE并不支持这个规范。不过我还是很吃惊，IE10竟然也不支持filename</em>。</p>
+<p>按照规范输出Content-Disposition的PHP代码如下：</p>
+<pre><code>if ( strpos ( $_SERVER [ &apos;HTTP_USER_AGENT&apos; ], &quot;MSIE&quot; ) &gt; 0 )
+{
+     header ( &apos;Content-Disposition: attachment; filename=&quot;&apos; . rawurlencode ( $originfile ) . &apos;&quot;&apos; );
+}
+else
+{
+     header( &apos;Content-Disposition: attachment; filename*=UTF-8\&apos;\&apos;&apos; . rawurlencode ( $originfile ) );
+}
+</code></pre><p>注意编码时使用<code>rawurlencode</code>而不是<code>urlencode</code>,二者的区别在于前者把空格编码为%20，而后者是+。在stackoverflow上关于这两个函数有更详细的讨论，<a href="http://stackoverflow.com/questions/996139/php-urlencode-vs-rawurlencode" target="_blank" rel="external">PHP - urlencode vs rawurlencode?</a>。</p>
+<h3 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type"></a>Content-Type</h3><p>浏览器对已知类型的文件（如jpg、pdf、txt等）直接在浏览器内打开，我们通过设置http头中的 Content-Type 来改变浏览器认知的文件类型。 这里把Content-Type 设置为octet-stream,也就是二进制文件流。这样浏览器就会直接打开文件，而不是在浏览器内打开。</p>
+<pre><code>Content-Type: application/octet-stream
+</code></pre><h3 id="完整PHP代码"><a href="#完整PHP代码" class="headerlink" title="完整PHP代码"></a>完整PHP代码</h3><pre><code>$filename = &apos;中文文件名.txt&apos;;
+header(&apos;Content-Type: application/octet-stream&apos;);
+if ( strpos ( $_SERVER [ &apos;HTTP_USER_AGENT&apos; ], &quot;MSIE&quot; ) &gt; 0 )
+{
+     header ( &apos;Content-Disposition: attachment; filename=&quot;&apos; . rawurlencode ( $originfile ) . &apos;&quot;&apos; );
+}
+else
+{
+     header( &apos;Content-Disposition: attachment; filename*=UTF-8\&apos;\&apos;&apos; . rawurlencode ( $originfile ) );
+}
+
+header(&apos;Expires: 0&apos;);
+header(&apos;Cache-Control: must-revalidate, post-check=0, pre-check=0&apos;);
+header(&quot;Content-Transfer-Encoding: binary&quot;);
+header(&apos;Pragma: public&apos;);
+header(&quot;Content-Length: &quot;.filesize($filename));
+</code></pre><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="http://greenbytes.de/tech/tc2231/" target="_blank" rel="external">Test Cases for HTTP Content-Disposition header field (RFC 6266) and the Encodings defined in RFCs 2047, 2231 and 5987</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/10/31/download-header/" data-id="ciwu9c2n5001ttfq20xnbny5q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-php-internal-web-server" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/30/php-internal-web-server/" class="article-date">
+  <time datetime="2013-10-29T16:00:00.000Z" itemprop="datePublished">2013-10-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/30/php-internal-web-server/">使用PHP内置的Web服务器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用PHP内置的Web服务器"><a href="#使用PHP内置的Web服务器" class="headerlink" title="使用PHP内置的Web服务器"></a>使用PHP内置的Web服务器</h2><p>PHP从5.4.0开始已经内置了Web服务器，开发测试环境再也不需要安装Apache/Nginx了，也不需要为每个项目配置站点，使用起来也非常简单，只需要在终端中进入你站点的根目录，执行以下的命令：</p>
+<pre><code>$ php -S localhost:8000
+</code></pre><p>然后就可以在浏览器里访问了。</p>
+<p>如果你想指定站点的根目录,使用-t参数</p>
+<pre><code>$ php -S localhost:8000 -t /home/me/public_html
+</code></pre><p>如果需要使用本地测试域名在浏览器中访问，启动web服务器时使用本地ip(127.0.0.1)</p>
+<pre><code>$ php -S 127.0.0.1:8000
+</code></pre><p>我一直使用Codeigniter开发PHP项目，经过一个项目的实践，PHP内置的Web服务器完全胜任，以后开发环境就用他了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/10/30/php-internal-web-server/" data-id="ciwu9c2nb001vtfq22blc4q2e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-install-mavericks" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/28/install-mavericks/" class="article-date">
+  <time datetime="2013-10-27T16:00:00.000Z" itemprop="datePublished">2013-10-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/28/install-mavericks/">制作可启动的Mavericks安装盘</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="制作可启动的Mavericks安装盘"><a href="#制作可启动的Mavericks安装盘" class="headerlink" title="制作可启动的Mavericks安装盘"></a>制作可启动的Mavericks安装盘</h2><h3 id="验证原盘是否可靠"><a href="#验证原盘是否可靠" class="headerlink" title="验证原盘是否可靠"></a>验证原盘是否可靠</h3><p>打开终端，执行以下命令：</p>
+<pre><code># sha1 = 2d73cea41072c028105332a6e7c1027161fa07fe
+openssl sha1 &quot;Software/Install OS X Mavericks.app/Contents/SharedSupport/InstallESD.dmg&quot;
+</code></pre><h4 id="制作可启动的Mavericks安装盘-1"><a href="#制作可启动的Mavericks安装盘-1" class="headerlink" title="制作可启动的Mavericks安装盘"></a>制作可启动的Mavericks安装盘</h4><p>打开终端，执行以下命令：</p>
+<pre><code>#
+# ~/Software是我放置Install OS X Mavericks.app的位置
+# /Volumes/OS 是安装盘分区的名字
+cd ~/Software
+sudo ./&quot;Install OS X Mavericks.app/Contents/Resources/createinstallmedia&quot; --volume /Volumes/OS --applicationpath &quot;Install OS X Mavericks.app&quot; --nointeraction
+</code></pre><p>回车就开始制作安装盘，整个过程大概需要20多分钟。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/10/28/install-mavericks/" data-id="ciwu9c2mm001ltfq2ao6t1vdy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeIgniter/">CodeIgniter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dropbox/">Dropbox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Justwriting/">Justwriting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lua/">Lua</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQLDump/">MySQLDump</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSRegularExpression/">NSRegularExpression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ruby/">Ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentry/">Sentry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twig/">Twig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wax/">Wax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zeal/">Zeal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icns/">icns</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/公众平台/">公众平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅游/">旅游</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CodeIgniter/" style="font-size: 10px;">CodeIgniter</a> <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Dropbox/" style="font-size: 10px;">Dropbox</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JustWritting/" style="font-size: 10px;">JustWritting</a> <a href="/tags/Justwriting/" style="font-size: 12.5px;">Justwriting</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.5px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/MySQLDump/" style="font-size: 10px;">MySQLDump</a> <a href="/tags/NSRegularExpression/" style="font-size: 10px;">NSRegularExpression</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/Sentry/" style="font-size: 12.5px;">Sentry</a> <a href="/tags/Twig/" style="font-size: 10px;">Twig</a> <a href="/tags/Wax/" style="font-size: 10px;">Wax</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/Zeal/" style="font-size: 10px;">Zeal</a> <a href="/tags/iOS/" style="font-size: 17.5px;">iOS</a> <a href="/tags/icns/" style="font-size: 10px;">icns</a> <a href="/tags/公众平台/" style="font-size: 10px;">公众平台</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/旅游/" style="font-size: 10px;">旅游</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/10/12/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/01/利用复习对抗遗忘/">利用复习对抗遗忘</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/18/ios8-install/">iOS8升级，没有5.7G空间，也能升级！</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/10/docker-nsenter/">使用nsenter进入Docker容器</a>
+          </li>
+        
+          <li>
+            <a href="/2014/09/07/docker/">Docker 学习笔记 -- 入门</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 hjue<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e72c5a01d3cbdc1eb6fc984a2ff5920e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

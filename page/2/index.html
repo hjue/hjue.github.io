@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -61,10 +61,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-google-analytics-ios" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-nsregularexpression-cheat-sheet-and-quick-reference" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2013/10/18/google-analytics-ios/" class="article-date">
-  <time datetime="2013-10-18T04:22:00.000Z" itemprop="datePublished">2013-10-18</time>
+    <a href="/2014/07/07/nsregularexpression-cheat-sheet-and-quick-reference/" class="article-date">
+  <time datetime="2014-07-06T16:00:00.000Z" itemprop="datePublished">2014-07-07</time>
 </a>
     
   </div>
@@ -75,7 +75,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2013/10/18/google-analytics-ios/">Google Analytics for iOS</a>
+      <a class="article-title" href="/2014/07/07/nsregularexpression-cheat-sheet-and-quick-reference/">NSRegularExpression Cheat Sheet and Quick Reference</a>
     </h1>
   
 
@@ -83,49 +83,743 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Guide"><a href="#Guide" class="headerlink" title="Guide"></a>Guide</h4><p><a href="https://developers.google.com/analytics/devguides/collection/android/v3/" target="_blank" rel="external">Developer Doc</a></p>
-<h4 id="Liner-error-when-trying-to-install-new-Google-Analytics-3-0-beta"><a href="#Liner-error-when-trying-to-install-new-Google-Analytics-3-0-beta" class="headerlink" title="Liner error when trying to install new Google Analytics 3.0 beta"></a>Liner error when trying to install new Google Analytics 3.0 beta</h4><pre><code>Add AdSupport.framework
-</code></pre><h4 id="Initializing-the-tracker"><a href="#Initializing-the-tracker" class="headerlink" title="Initializing the tracker"></a>Initializing the tracker</h4><pre><code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // Optional: automatically send uncaught exceptions to Google Analytics.
-  [GAI sharedInstance].trackUncaughtExceptions = YES;
+        <h2 id="NSRegularExpression-Cheat-Sheet-and-Quick-Reference"><a href="#NSRegularExpression-Cheat-Sheet-and-Quick-Reference" class="headerlink" title="NSRegularExpression Cheat Sheet and Quick Reference"></a>NSRegularExpression Cheat Sheet and Quick Reference</h2><h3 id="Special-Characters"><a href="#Special-Characters" class="headerlink" title="Special Characters"></a>Special Characters</h3><p><code>*?+[(){}^$|\./</code></p>
+<h3 id="Operators"><a href="#Operators" class="headerlink" title="Operators"></a>Operators</h3><table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\</td>
+<td></td>
+<td>￼Or</td>
+</tr>
+<tr>
+<td> *</td>
+<td>0 or more times. Match as many times as possible.</td>
+</tr>
+<tr>
+<td> +</td>
+<td>1 or more times. Match as many times as possible.</td>
+</tr>
+<tr>
+<td> ?</td>
+<td>0 or 1 times. Prefer 1.</td>
+</tr>
+<tr>
+<td> *?</td>
+<td>0 or more times. Match as few times as possible.</td>
+</tr>
+<tr>
+<td> +?</td>
+<td>1 or more times. Match as few times as possible.</td>
+</tr>
+<tr>
+<td> ??</td>
+<td>0 or 1 times. Prefer 0.</td>
+</tr>
+<tr>
+<td> *+</td>
+<td>0 or more times. Match as many times as possible when first encountered, do not retry with fewer even if overall match fails (Possessive Match).</td>
+</tr>
+<tr>
+<td> ++</td>
+<td>1 or more times. Possessive match.</td>
+</tr>
+<tr>
+<td>  ?+</td>
+<td>0 or 1 times. Possessive match.</td>
+</tr>
+<tr>
+<td> ￼{n} {n}? {n}+</td>
+<td>Exactly n times.</td>
+</tr>
+<tr>
+<td> {n,}</td>
+<td>￼n or more.</td>
+</tr>
+<tr>
+<td>{n,}?</td>
+<td>At least n times, but no more than required for an overall pattern match.</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>Between n and m times.</td>
+</tr>
+<tr>
+<td>￼{n,m}?</td>
+<td>Between n and m times. Match as few times as possible, but not less than n.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Anchors"><a href="#Anchors" class="headerlink" title="Anchors"></a>Anchors</h3><table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>Beginning of a line.</td>
+</tr>
+<tr>
+<td>$</td>
+<td>End of a line.</td>
+</tr>
+<tr>
+<td>\A</td>
+<td>Beginning of an input. Doesn’t match after a new line within the input.</td>
+</tr>
+<tr>
+<td>\z</td>
+<td>End of input.</td>
+</tr>
+<tr>
+<td>\Z</td>
+<td>End of input, but before the final line terminator, if one exists.</td>
+</tr>
+<tr>
+<td>￼.</td>
+<td>Any character.</td>
+</tr>
+<tr>
+<td>\</td>
+<td>Quote (escape) following character.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Character-Classes"><a href="#Character-Classes" class="headerlink" title="Character Classes"></a>Character Classes</h3><table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> \b</td>
+<td>Word boundary, if outside of a [Set]. BACKSPACE, if within a [Set].</td>
+</tr>
+<tr>
+<td>￼ \B</td>
+<td>Not word boundary.</td>
+</tr>
+<tr>
+<td>￼ \s</td>
+<td>White space character.</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>Non-white space character.</td>
+</tr>
+<tr>
+<td>￼\d</td>
+<td>Digit character.</td>
+</tr>
+<tr>
+<td>￼\D</td>
+<td>Non-digit character.</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>Word character.</td>
+</tr>
+<tr>
+<td>￼\W</td>
+<td>Non-word character.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Groups-and-Ranges"><a href="#Groups-and-Ranges" class="headerlink" title="Groups and Ranges"></a>Groups and Ranges</h3><table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(…)</td>
+<td>Capturing parentheses (capturing group).</td>
+</tr>
+<tr>
+<td>(?:…)</td>
+<td>Non-capturing parentheses. Matches but doesn’t capture. Somewhat more efficient than capturing parentheses.</td>
+</tr>
+<tr>
+<td>(?!…)</td>
+<td>Negative look-ahead. True if the parenthesized pattern does not match at the current input position.</td>
+</tr>
+<tr>
+<td>[…]</td>
+<td>Any one character in the set.</td>
+</tr>
+<tr>
+<td>[^…]</td>
+<td>Negated set. Not any one in the set.</td>
+</tr>
+</tbody>
+</table>
 
-  // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
-  [GAI sharedInstance].dispatchInterval = 20;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/07/07/nsregularexpression-cheat-sheet-and-quick-reference/" data-id="ciwu9c2my001ptfq2zjnyxu8e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NSRegularExpression/">NSRegularExpression</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
 
-  // Optional: set Logger to VERBOSE for debug information.
-  [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    </footer>
+  </div>
+  
+</article>
 
-  // Initialize tracker.
-  id&lt;GAITracker&gt; tracker = [[GAI sharedInstance] trackerWithTrackingId:@&quot;UA-XXXX-Y&quot;];
+  
+  
+    <article id="post-make-icns" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/02/15/make-icns/" class="article-date">
+  <time datetime="2014-02-14T16:00:00.000Z" itemprop="datePublished">2014-02-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/02/15/make-icns/">使用shell生成icns文件</a>
+    </h1>
+  
 
-}
-</code></pre><h4 id="Manual-Screen-Tracking"><a href="#Manual-Screen-Tracking" class="headerlink" title="Manual Screen Tracking"></a>Manual Screen Tracking</h4><pre><code>#import &quot;GAI.h&quot;
-#import &quot;GAIDictionaryBuilder.h&quot;
-#import &quot;GAIFields.h&quot;
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    id&lt;GAITracker&gt; tracker = [[GAI sharedInstance] defaultTracker];
-
-    // This screen name value will remain set on the tracker and sent with
-    // hits until it is set to a new value or to nil.
-    [tracker set:kGAIScreenName value:@&quot;Home Screen&quot;];
-
-    [tracker send:[[GAIDictionaryBuilder createAppView] build]];
-}
-</code></pre><h4 id="Event-Tracking"><a href="#Event-Tracking" class="headerlink" title="Event Tracking"></a>Event Tracking</h4><pre><code>id&lt;GAITracker&gt; tracker = [[GAI sharedInstance] defaultTracker];
-[tracker send:[[GAIDictionaryBuilder createEventWithCategory:@&quot;UI_ACTION&quot;     // Event category (required)
-                                                      action:@&quot;BUTTON_PRESS&quot;  // Event action (required)
-                                                       label:@&quot;DOWNLOAD&quot;          // Event label
-                                                       value:[NSNumber numberWithInt:_slideID]] build]];    // Event value
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>正在做<a href="https://github.com/hjue/php-manual-mac" target="_blank" rel="external">Mac版PHP手册</a>，做图标的时候，发现在Developer tool里竟然没有Icon Composer了。这是什么情况？网上搜索了一下发现，自Xcode4.4以后就不再提供这个工具了。因为Xcode发展到4.4的时候，MBP已经出了15寸的Retain屏了。为了支持高清显示，苹果提供了一个工具iconutil，用来生成支持高清设备的图标。<br>Apple的官方文档：<a href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Optimizing/Optimizing.html" target="_blank" rel="external">High Resolution Guidelines for OS X</a> </p>
+<h3 id="大体的制作过程是"><a href="#大体的制作过程是" class="headerlink" title="大体的制作过程是:"></a>大体的制作过程是:</h3><p>准备一个叫icon.iconset的文件夹，在里面放下面这些图标:<br>    icon_16x16.png<br>    icon_16x16@2x.png<br>    icon_32x32.png<br>    icon_32x32@2x.png<br>    icon_128x128.png<br>    icon_128x128@2x.png<br>    icon_256x256.png<br>    icon_256x256@2x.png<br>    icon_512x512.png<br>    icon_512x512@2x.png<br>然后用 <code>iconutil -c icns</code> 得想到要的icns文件。<br>整个过程可使用shell生成,准备好512x512的logo(icon.png)</p>
+<pre><code>#make_osx_icon icon.png
+for size in 16 32 128 256 512 ;
+do
+  echo $size;
+  sips -s format png -Z $size $1  --out icon.iconset/${1%.png}_${size}x${size}.png ;
+  retina=$(expr $size \* 2 )
+  echo $size@2x;
+  sips -s format png -Z $retina $1  --out icon.iconset/${1%.png}_${size}x${size}@2x.png ;
+done
+iconutil -c icns icon.iconset
 </code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2013/10/18/google-analytics-ios/" data-id="ciwu8t9zh0009nhq24gmbbfab" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2014/02/15/make-icns/" data-id="ciwu9mv7w002ztfq22ytc7owj" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/icns/">icns</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-Compile-Zear-on-Mac-OS-X" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/01/26/Compile-Zear-on-Mac-OS-X/" class="article-date">
+  <time datetime="2014-01-25T16:00:00.000Z" itemprop="datePublished">2014-01-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/26/Compile-Zear-on-Mac-OS-X/">Compile Zeal on Mac OS X</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用Mac做开发的同学一般都知道Dash, 它是个离线的 API 文档搜索 + 浏览工具。Dash一开始在Appstore上是免费的，支持的文档也不多。后来用的人逐渐多了起来，很多开发者主动贡献了自己制作的文档。而Dash这个时候推出了收费版，免费版加了各种限制，让你用起来不爽，不是不爽，简直是没法用。作为早期的Dash用户，我还向周边的朋友推荐了它。一般来说，对于当下免费的功能以后打算收费，在软件发布的时候会给用户提示，常见的做法是对功能做时间显示。而Dash的做法是，一开始全部功能免费，对于今后打算收费的计划只字不提，用户给与好评、推荐，照单全收，还有很多用户贡献的文档库也据为己有。<br>对于这种软件的作者坚决不支持、不购买。<br><a href="https://github.com/jkozera/zeal" target="_blank" rel="external">Zeal</a>是基于QT做的一个离线文档浏览工具，免费并且开源。不过和Dash比起来，功能上还很残… 不过还是可以用的。Zeal毕竟是使用了Dash的文档库，为了不和Dash（Dash只有Mac版）冲突，Zeal没有提供Mac下载。然而QT是跨平台的，可以用源码编译生成Mac上的安装包。</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="安装X11"><a href="#安装X11" class="headerlink" title="安装X11"></a>安装X11</h4><p>首先要安装x11，因为从Mountain Lion开始，Mac已经删除了x11<br>这个是来自Apple的文档，里面Mac不再支持X11的说明 <a href="http://support.apple.com/kb/HT5293" target="_blank" rel="external">http://support.apple.com/kb/HT5293</a><br>Install X11 <a href="http://xquartz.macosforge.org/landing/" target="_blank" rel="external">http://xquartz.macosforge.org/landing/</a></p>
+<h4 id="安装QT5"><a href="#安装QT5" class="headerlink" title="安装QT5"></a>安装QT5</h4><pre><code>brew install qt5
+</code></pre><h3 id="开始编译"><a href="#开始编译" class="headerlink" title="开始编译"></a>开始编译</h3><pre><code>$ git clone https://github.com/jkozera/zeal.git
+$ cd zeal/zeal
+$ /usr/local/opt/qt5/bin/qmake
+$ make
+</code></pre><h3 id="生成安装包"><a href="#生成安装包" class="headerlink" title="生成安装包"></a>生成安装包</h3><pre><code>$ /usr/local/opt/qt5/bin/macdeployqt zeal.app -dmg
+</code></pre><p>![Zeal](/images/post/zeal.pngNaN</p>
+<p>我已经把安装包上传到了新浪微盘，懒得折腾的同学在这里<a href="http://t.cn/8FLKymM" target="_blank" rel="external">下载</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/01/26/Compile-Zear-on-Mac-OS-X/" data-id="ciwu9cwc20029tfq2rabhsa08" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Zeal/">Zeal</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-philippines-boracay" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/01/11/philippines-boracay/" class="article-date">
+  <time datetime="2014-01-10T16:00:00.000Z" itemprop="datePublished">2014-01-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/01/11/philippines-boracay/">长滩你好（4天3晚自由行）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2327.jpg-w800" alt=""><br>↑图: 这里是菲律宾卡里波机场出口。卡里波机场是我见过最小的机场。只有一条跑道，飞机降落后需要掉头开到停机坪。<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2556.jpg-w800" alt=""><br>路过一个很别致的酒店<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2553.jpg-w800" alt=""><br>汉娜酒店很不错，温馨亲切，有家般的感觉，一直微笑服务，有问必答。<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2350.jpg-w800" alt=""><br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2354.jpg-w800" alt=""><br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2358.jpg-w800" alt=""><br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2369.jpg-w800" alt=""><br>长滩的落日很壮观，如果白天云层丰富，日落就会漂亮<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2376.jpg-w800" alt=""><br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2396.jpg-w800" alt=""><br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2478.jpg-w800" alt=""><br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2483.jpg-w800" alt=""><br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2485.jpg-w800" alt=""><br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2487.jpg-w800" alt=""></p>
+<p><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2566.jpg-w800" alt=""><br>一边是暴雨，一边是晴天，彩虹是分界线。没带广角，拍不下整条彩虹。<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2583.jpg-w800" alt=""><br>暴雨覆盖了整个天空，我在教堂躲雨中<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2595.jpg-w800" alt=""><br>长滩美中不足的是绿藻，不过靠近Nami的区域是没有的绿藻的。<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2809.jpg-w800" alt=""><br>Yellow Cab的薄底Pizza拼盘，味道不错，炸鸡翅非常好，外焦里嫩。<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_2827.jpg-w800" alt=""><br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_3031.jpg-w800" alt=""><br>长滩岛的螃蟹船(Banca Boat)，船的两侧各有四根外伸出去的支架，因样子有些像螃蟹的脚而得名<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_3033.jpg-w800" alt=""><br>我就是坐这个船出海的，没有动力，靠风帆，很环保。<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_3083.jpg-w800" alt=""><br>沙滩边就是酒店和饭店，吃饭、游泳，休息，随时都可以，方便极了。<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_3095.jpg-w800" alt=""><br>可以站在这种板上划着出海，看似简单，实际上站在上面都很困难。<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_3108.jpg-w800" alt=""><br>著名的Fridays酒店。<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_3167.jpg-w800" alt=""><br>Nami餐厅是建在山上的，需要乘电梯上去。<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_3147.jpg-w800" alt=""><br>在Nami餐厅看长滩海湾美极了<br><img src="http://hjue-me.u.qiniudn.com/philippines-DSC_3302.jpg-w800" alt=""><br>Gumamela Resort - Hillside，半山上的酒店，要爬60级台阶。老板很nice，主动送了我们免费的早餐。<br><img src="http://hjue-me.u.qiniudn.com/philippines-IMG_0508.jpg-w800" alt=""><br>海鲜市场D’Talipapa，自己买海鲜，然后拿到旁边的加工店加工。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/01/11/philippines-boracay/" data-id="ciwu9pp0f0034tfq2k8nlyyeb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/旅游/">旅游</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-phantomjs-capture-screen" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/30/phantomjs-capture-screen/" class="article-date">
+  <time datetime="2013-12-30T02:41:45.000Z" itemprop="datePublished">2013-12-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/30/phantomjs-capture-screen/">phantomjs网站截图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>yum install fontconfig<br>yum install fontconfig-devel<br>用phantomjs去截取中文页面的网站可能会出现乱码的情况，也就是截图中中文的位置全是方框。<br>解决办法就是安装字体。<br>在centos中执行：yum install bitmap-fonts bitmap-fonts-cjk<br>在ubuntu中执行：sudo apt-get install xfonts-wqy<br>这样再去截图中文的页面就不会出现一堆的方框了。<br>yum install bitmap-fonts bitmap-fonts-cjk<br>phantomjs rasterize.js <a href="http://ariya.github.com/svg/tiger.svg" target="_blank" rel="external">http://ariya.github.com/svg/tiger.svg</a> tiger.png<br><a href="https://github.com/ariya/phantomjs/wiki/Screen-Capture" target="_blank" rel="external">https://github.com/ariya/phantomjs/wiki/Screen-Capture</a><br>yum install cjkuni-fonts-ghostscript.noarch<br>yum install kde-i18n-Chinese.noarch<br>set LANG=zh_CN.UTF8<br><img src="/images/post/phantomjs-hjue.png" alt=""></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/12/30/phantomjs-capture-screen/" data-id="ciwu9oc5d0033tfq2j2clfjmk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-mysqldump-events-triggers-function-procedure" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/12/mysqldump-events-triggers-function-procedure/" class="article-date">
+  <time datetime="2013-12-11T16:00:00.000Z" itemprop="datePublished">2013-12-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/12/mysqldump-events-triggers-function-procedure/">MySQLDump备份注意事项</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>MySQLDump备份数据库时默认是不备份存储过程、函数、触发器、事件的，难道这些不重要？<br>查看数据库中的存储过程、函数、触发器、事件，可以用以下命令查询。<br>    show procedure status;<br>    show function status;<br>    show triggers;<br>    show events; </p>
+<p>不明白为什么MySQL在设计查询语句时，查看存储过程和函数，需要多加个<strong>status</strong>。<br>如果使用MySQLDump备份时，需要导出存储过程、函数、触发器、事件，可添加如下参数。<br>    –routines  # 存储过程和函数<br>    –triggers  # 触发器<br>    –events    # 事件<br>PS：<code>--no-data</code>参数可以不导出数据。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/12/12/mysqldump-events-triggers-function-procedure/" data-id="ciwu9q1760037tfq2rxknn1gj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQLDump/">MySQLDump</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-php-fpm-nginx" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/09/php-fpm-nginx/" class="article-date">
+  <time datetime="2013-12-08T16:00:00.000Z" itemprop="datePublished">2013-12-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/09/php-fpm-nginx/">Nginx和PHP配置备忘</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用PHP5-5-x"><a href="#使用PHP5-5-x" class="headerlink" title="使用PHP5.5.x"></a>使用PHP5.5.x</h3><p>使用PHP5.5.x可大幅度提高Webserver负载能力，详细看<a href="http://hjue.me/post/php-opcache" target="_blank" rel="external">这里</a></p>
+<h3 id="Nginx配置"><a href="#Nginx配置" class="headerlink" title="Nginx配置"></a>Nginx配置</h3><h4 id="Nginx-worker-processes"><a href="#Nginx-worker-processes" class="headerlink" title="Nginx worker_processes"></a>Nginx worker_processes</h4><pre><code>max_clients = worker_processes * worker_connections
+worker_processes  1;
+worker_connections  1024;
+</code></pre><blockquote>
+<p><code>worker_processes</code>的数值一般设置为内核数</p>
+</blockquote>
+<pre><code>$ cat /proc/cpuinfo |grep processor
+processor       : 0
+processor       : 1
+processor       : 2
+processor       : 3
+processor       : 4
+processor       : 5
+processor       : 6
+processor       : 7
+</code></pre><p>根据查到的内核数，这里我们配置<code>worker_processes</code>为8<br>    worker_processes  8;</p>
+<h4 id="隐藏-Nginx-Server-Tokens"><a href="#隐藏-Nginx-Server-Tokens" class="headerlink" title="隐藏 Nginx Server Tokens"></a>隐藏 Nginx Server Tokens</h4><p><code>server_tokens</code>在Nginx配置文件的http/server/location部分设置。<br>    server_tokens off;</p>
+<h4 id="Nginx-Request-Upload-Max-Body-Size-client-max-body-size"><a href="#Nginx-Request-Upload-Max-Body-Size-client-max-body-size" class="headerlink" title="Nginx Request / Upload Max Body Size (client_max_body_size)"></a>Nginx Request / Upload Max Body Size (client_max_body_size)</h4><p><code>client_max_body_size</code>的默认值是1m，如果你的网站需要上传大于1m的文件，设置client_max_body_size为你需要的值。否则，在你上传超过client_max_body_size的文件时，Nginx会返回给你413错误，告诉你“Request Entity Too Large” 。<br><code>client_max_body_size</code>在Nginx配置文件的http/server/location部分设置。</p>
+<pre><code>client_max_body_size 20m;
+client_body_buffer_size 128k;
+</code></pre><h4 id="缓存静态文件"><a href="#缓存静态文件" class="headerlink" title="缓存静态文件"></a>缓存静态文件</h4><pre><code>location ~* \.(jpg|jpeg|gif|png|css|js|ico|xml)$ {
+    access_log        off;
+    log_not_found     off;
+    expires           360d;
+}
+</code></pre><h3 id="启用gzip"><a href="#启用gzip" class="headerlink" title="启用gzip"></a>启用gzip</h3><pre><code>gzip_proxied any;
+gzip_types 
+    text/css
+    text/plain
+    text/javascript
+    application/javascript
+    application/json
+    application/x-javascript
+    application/xml
+    application/xml+rss
+    application/xhtml+xml
+    application/x-font-ttf
+    application/x-font-opentype
+    application/vnd.ms-fontobject
+    image/svg+xml
+    image/x-icon
+    application/rss+xml
+    application/atom_xml;
+
+gzip_comp_level 9;
+gzip_http_version 1.0;
+gzip_vary on;
+gzip_buffers 16 8k;
+gzip_min_length 50;
+</code></pre><h4 id="把PHP请求交给PHP-FPM"><a href="#把PHP请求交给PHP-FPM" class="headerlink" title="把PHP请求交给PHP-FPM"></a>把PHP请求交给PHP-FPM</h4><pre><code>location / {
+        try_files $uri $uri/ /index.php$uri?$args;
+}
+location ~* \.php {
+    fastcgi_pass 127.0.0.1:9000;
+    fastcgi_index index.php;
+    include fastcgi_params;
+    fastcgi_split_path_info ^(.+\.php)(/?.*)$;
+    fastcgi_param PATH_INFO $fastcgi_path_info;        
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+}
+</code></pre><h4 id="禁止访问隐藏文件"><a href="#禁止访问隐藏文件" class="headerlink" title="禁止访问隐藏文件"></a>禁止访问隐藏文件</h4><pre><code>location ~ /\. {
+    access_log off;
+    log_not_found off; 
+    deny all;
+}    
+</code></pre><h3 id="配置PHP-FPM"><a href="#配置PHP-FPM" class="headerlink" title="配置PHP-FPM"></a>配置PHP-FPM</h3><h4 id="PHP-FPM-基本配置"><a href="#PHP-FPM-基本配置" class="headerlink" title="PHP-FPM 基本配置"></a>PHP-FPM 基本配置</h4><pre><code>emergency_restart_threshold 10
+emergency_restart_interval 1m
+process_control_timeout 10s
+</code></pre><h4 id="配置PHP-FPM-Pool-进程"><a href="#配置PHP-FPM-Pool-进程" class="headerlink" title="配置PHP-FPM Pool 进程"></a>配置PHP-FPM Pool 进程</h4><p><code>pm.max_children</code>是PHP-FPM Pool 最大的子进程数,他数值取决于你的服务器内存。<br>假设你打算给1G内存给当前配置的PHP-FPM Pool，一般一个PHP请求占用内存10M-40M，我们按站点每个PHP请求占用内存25M，这样max_children = 1G/25M = 40.96。<br>这样，我设置pm.max_children为40. max_requests是每个子进程重生之前处理的请求数， 默认值为unlimited，设置为2000主要是为了避免内存泄露带来的问题</p>
+<pre><code>pm = dynamic
+pm.max_children = 40
+pm.start_servers = 15
+pm.min_spare_servers = 10
+pm.max_spare_servers = 20
+pm.max_requests = 2000
+</code></pre><h4 id="PHP-FPM-Pools-Configuration"><a href="#PHP-FPM-Pools-Configuration" class="headerlink" title="PHP-FPM Pools Configuration"></a>PHP-FPM Pools Configuration</h4><p>建议不同站点使用不同的PHP-FPM Pool,绑定在不同的端口。这样一个站点出问题，不至于影响其他的站点。同时，如果php-fpm进程占用CPU过高，也可以很快定位有问题的站点。</p>
+<p>下边配置了两个PHP-FPM Pool，绑定了9000和9001两个http端口</p>
+<p>/etc/php-fpm.d/site.conf</p>
+<pre><code>[site]
+listen = 127.0.0.1:9000
+user = site
+group = site
+request_slowlog_timeout = 5s
+slowlog = /var/log/php-fpm/slowlog-site.log
+listen.allowed_clients = 127.0.0.1
+pm = dynamic
+pm.max_children = 5
+pm.start_servers = 3
+pm.min_spare_servers = 2
+pm.max_spare_servers = 4
+pm.max_requests = 200
+listen.backlog = -1
+pm.status_path = /status
+request_terminate_timeout = 120s
+rlimit_files = 131072
+rlimit_core = unlimited
+catch_workers_output = yes
+env[HOSTNAME] = $HOSTNAME
+env[TMP] = /tmp
+env[TMPDIR] = /tmp
+env[TEMP] = /tmp
+</code></pre><p>/etc/php-fpm.d/blog.conf</p>
+<pre><code>[blog]
+listen = 127.0.0.1:9001
+user = blog
+group = blog
+request_slowlog_timeout = 5s
+slowlog = /var/log/php-fpm/slowlog-blog.log
+listen.allowed_clients = 127.0.0.1
+pm = dynamic
+pm.max_children = 4
+pm.start_servers = 2
+pm.min_spare_servers = 1
+pm.max_spare_servers = 3
+pm.max_requests = 200
+listen.backlog = -1
+pm.status_path = /status
+request_terminate_timeout = 120s
+rlimit_files = 131072
+rlimit_core = unlimited
+catch_workers_output = yes
+env[HOSTNAME] = $HOSTNAME
+env[TMP] = /tmp
+env[TMPDIR] = /tmp
+env[TEMP] = /tmp
+</code></pre><p>这段代码放在 /etc/php-fpm.conf 中，加载多个php-fpm pool</p>
+<pre><code>include=/etc/php-fpm.d/*.conf
+</code></pre><h4 id="开启PHP-FPM状态信息页"><a href="#开启PHP-FPM状态信息页" class="headerlink" title="开启PHP-FPM状态信息页"></a>开启PHP-FPM状态信息页</h4><p>php-fpm.conf配置文件要启用以下选项：</p>
+<pre><code>pm.status_path = /status
+</code></pre><p>在Nginx配置的server部分增加以下配置：</p>
+<pre><code>location ~ ^/(status)$ {
+     access_log off;
+     include fastcgi_params;
+     fastcgi_pass 127.0.0.1:9000;
+     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+}
+</code></pre><p>访问<a href="http://localhost/status" target="_blank" rel="external">http://localhost/status</a> 查看php-fpm状态</p>
+<p><img src="/images/post/php-fpm-status.png" alt="Php Fpm Status"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/12/09/php-fpm-nginx/" data-id="ciwu9vj0g003mtfq2c8m52144" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-php-opcache" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/08/php-opcache/" class="article-date">
+  <time datetime="2013-12-07T16:00:00.000Z" itemprop="datePublished">2013-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/08/php-opcache/">升级到PHP5.5.x可大幅度提高服务器负载能力</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>到现在PHP5.5.x已经发展到5.5.6了，经过半年的发展已经非常稳定，并且解析编译代码的性能比php5.4.x高不少，同时php5.5.x内置了Opcache。使用Opcache可以显著提高PHP服务器的负载能力，大幅度降低语法解析编译所占用的CPU时间。</p>
+<blockquote>
+<p>Zend OPcache 通过 opcode 缓存和优化提供更快的 PHP 执行过程。它将预编译的脚本文件存储在共享内存中供以后使用，从而避免了从磁盘读取代码并进行编译的时间消耗。同时，它还应用了一些代码优化模式，使得代码执行更快。<br>使用OPcache只需要编译时增加参数 <code>--enable-opcache</code> 即可。<br>当然不要忘记修改php.ini支持OPcache</p>
+</blockquote>
+<pre><code>zend_extension = {PHP_ROO_PATH}/lib/php/extensions/no-debug-non-zts-20121212/opcache.so
+opcache.fast_shutdown=1
+opcache.enable_cli=1  
+</code></pre><p>下面这段是官方推荐的配置参数，可以进一步提升性能：<br>    opcache.memory_consumption=128<br>    opcache.interned_strings_buffer=8<br>    opcache.max_accelerated_files=4000<br>    opcache.revalidate_freq=60<br>    opcache.fast_shutdown=1<br>    opcache.enable_cli= On<br>    opcache.enable= On<br>我做了个简单的测试。<br>我在Codeigniter中新建了一个最简单的Controller用来进行性能测试<br>    class Test extends CI_Controller {</p>
+<pre><code>public function index()
+{
+var_dump(&apos;hello world!&apos;);
+}
+</code></pre><p>使用ab进行测试 (ab在Apache的bin目录中)<br>    $ ab -c 50 -n 1000 <a href="http://localhost/index.php/test" target="_blank" rel="external">http://localhost/index.php/test</a></p>
+<p>测试结果<br>    Zend OPcache off    Request per second: 76.51 [#/sec]<br>    Zend OPcache On 使用默认配置 Request per second: 531.42  [#/sec]<br>    Zend OPcache On 使用优化配置  Request per second: 575.66  [#/sec]<br>可以看出使用了Opcache后，性能提高可不是一点点。<br>推荐使用：<a href="https://gist.github.com/ck-on/4959032" target="_blank" rel="external">Zend Opcache 控制面板</a>,效果如下图：<br>![Opcache](/images/post/opcache-cp.pngNaN</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/12/08/php-opcache/" data-id="ciwu9qbhg003ctfq2biq0jd0h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-hello-wax-iphone-app" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/07/hello-wax-iphone-app/" class="article-date">
+  <time datetime="2013-12-06T16:00:00.000Z" itemprop="datePublished">2013-12-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/07/hello-wax-iphone-app/">Hello Wax For iPhone App</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Wax是什么"><a href="#Wax是什么" class="headerlink" title="Wax是什么?"></a>Wax是什么?</h3><p>Wax是一个框架，让你可以用Lua开发原生的iPhone应用。Wax把Lua和Objetive-C的类库 连接起来，也就是说，你可以用Lua使用任何的Objective-C类及框架。</p>
+<h3 id="为什么使用Wax"><a href="#为什么使用Wax" class="headerlink" title="为什么使用Wax?"></a>为什么使用Wax?</h3><ul>
+<li>Wax是免费的、开源的。你总是可以改动源代码，以满足自己的需要。</li>
+<li>用Lua这种高效脚本语言编写代码可以大大节省时间</li>
+<li>可以使用所有现有的Objective-C库</li>
+<li>可以让你的App在线更新一些功能，不再需要经过苹果App Store的审核，不过被苹果发现你的应用下载代码的话可能会被拒绝。<blockquote>
+<p>2.7 Apps that download code in any way or form will be rejected<br>2.8 Apps that install or launch other executable code will be rejected</p>
+<h3 id="Hello-Wax"><a href="#Hello-Wax" class="headerlink" title="Hello Wax"></a>Hello Wax</h3><p>新建iOS APP项目，使用Empty Application模板，命名为HelloWax<br>下载wax.framework：<a href="https://github.com/downloads/probablycorey/wax/wax.framework.zip" target="_blank" rel="external">https://github.com/downloads/probablycorey/wax/wax.framework.zip</a><br>  wget <a href="https://github.com/downloads/probablycorey/wax/wax.framework.zip" target="_blank" rel="external">https://github.com/downloads/probablycorey/wax/wax.framework.zip</a></p>
+</blockquote>
+</li>
+</ul>
+<p>解压缩wax.framework.zip，将wax.framework添加到项目中，选择“Copy items into destination group’s folder”复选框<br>![Wax Add Framework](/images/post/wax-add-framework.pngNaN<br>AppDelegate.h文件，导入Wax包头文件：</p>
+<pre><code># import &lt;wax/wax.h&gt;
+</code></pre><p>AppDelegate.m文件，在application:didFinishLaunchingWithOptions:方法中，[self.windowmakeKeyAndVisible];和return YES;之间，添加代码：<br>    wax_start(“init.lua”, nil);<br>项目中新建文件init.lua：<br>    require “ViewController”<br>    viewController = ViewController:init()<br>    window = UIApplication:sharedApplication():keyWindow()<br>    window:setRootViewController(viewController)</p>
+<p>项目中新建文件ViewController.lua：<br>    waxClass{“ViewController”, UIViewController}<br>    function viewDidLoad(self)<br>    self.super:viewDidLoad(self)<br>    local label = UILabel:initWithFrame(CGRect(0, 120, 320, 40))<br>    label:setColor(UIColor:blackColor())<br>    label:setText(“Hello Wax!”)<br>    label:setTextAlignment(UITextAlignmentCenter)<br>    local font = UIFont:fontWithName_size(“Helvetica-Bold”,50)<br>    label:setFont(font)<br>    self:view():addSubview(label)<br>    end</p>
+<p>运行，搞定，Hello Wax！<br>![Wax Ios Screenshot](/images/post/wax-ios-screenshot.pngNaN</p>
+<h3 id="关于Wax的语法"><a href="#关于Wax的语法" class="headerlink" title="关于Wax的语法"></a>关于Wax的语法</h3><p>Lua中的函数名称不能有冒号。为了补偿这个差异，凡是Objective-C中隔开方法名称的地方，在Lua中都换成下划线。比如说以上程序的UIFont:fontWithName_size(“Helvetica-Bold”,50)对应于Objective-C的[UIFont fontWithName:@”Helvetica-Bold” size:50]<br>Lua没有像Objective-C那样的继承体系。Lua中根本没有类。<br>想通过Lua创建一个Objective-C类，就要使用<code>waxClass{“CLASS NAME”, “PARENT_CLASS”}</code>这个函数。你添加到该Lua文件的所有之后的函数(在同一个文件里面)都会作为实例方法，自动添加到新的类。<br>    waxClass{“ViewController”, UIViewController}</p>
+<p>Wax不支持Objective-C属性。只能使用<code>View:setFrame(someFrame)</code>,不能使用<code>someView.frame</code></p>
+<h3 id="Hello-Wax-的代码"><a href="#Hello-Wax-的代码" class="headerlink" title="Hello Wax 的代码"></a>Hello Wax 的代码</h3><div class="github-widget" data-repo="hjue/HelloWax"></div>
+
+<h3 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h3><p><a href="https://github.com/probablycorey/wax" target="_blank" rel="external">Wax</a><br><a href="https://github.com/probablycorey/wax" target="_blank" rel="external">https://github.com/probablycorey/wax</a><br><a href="https://github.com/mmin18/WaxPatch" target="_blank" rel="external">WaxPatch</a> 让你能够使用Wax动态的改变iOS APP的行为<br><a href="https://github.com/mmin18/WaxPatch" target="_blank" rel="external">https://github.com/mmin18/WaxPatch</a><br><a href="http://www.cnblogs.com/ly4cn/archive/2006/08/04/467550.html" target="_blank" rel="external">Lua语法说明</a><br><a href="http://www.cnblogs.com/ly4cn/archive/2006/08/04/467550.html" target="_blank" rel="external">http://www.cnblogs.com/ly4cn/archive/2006/08/04/467550.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/12/07/hello-wax-iphone-app/" data-id="ciwu9kihl002otfq2ybmkx1et" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lua/">Lua</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Wax/">Wax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+  
+  
+    <article id="post-php-redis-extension" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/12/04/php-redis-extension/" class="article-date">
+  <time datetime="2013-12-03T16:00:00.000Z" itemprop="datePublished">2013-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/12/04/php-redis-extension/">可以改用phpredis连接Redis了</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>之前PHP连接Redis一直用<a href="https://github.com/nrk/predis" target="_blank" rel="external">PRedis</a>，现在<a href="https://github.com/nicolasff/phpredis" target="_blank" rel="external">phpredis</a>被收录进PECL了。<br>这是phpredis的PECL仓库地址：<a href="http://pecl.php.net/package/redis" target="_blank" rel="external">http://pecl.php.net/package/redis</a><br>这说明phpredis已经比较成熟稳定，支持的redis命令更加全面。<br>并且phpredis是用C写的，效率应该比predis高不少。是改用phpredis的时候了。</p>
+<h3 id="安装phpredis"><a href="#安装phpredis" class="headerlink" title="安装phpredis"></a>安装phpredis</h3><pre><code>wget http://pecl.php.net/get/redis-2.2.4.tgz
+tar zxvf redis-2.2.4.tgz &amp;&amp; cd redis-2.2.4
+phpize
+./configure [--enable-redis-igbinary]
+make &amp;&amp; make install
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/12/04/php-redis-extension/" data-id="ciwu9qkub003etfq25yg6d36c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
 
     </footer>
   </div>
@@ -137,7 +831,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -148,9 +842,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeIgniter/">CodeIgniter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSRegularExpression/">NSRegularExpression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twig/">Twig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CodeIgniter/">CodeIgniter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dropbox/">Dropbox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Google-Analytics/">Google Analytics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JustWritting/">JustWritting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Justwriting/">Justwriting</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lua/">Lua</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQLDump/">MySQLDump</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NSRegularExpression/">NSRegularExpression</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ruby/">Ruby</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sentry/">Sentry</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Twig/">Twig</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Wax/">Wax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/">Web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xcode/">Xcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zeal/">Zeal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS/">iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/icns/">icns</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/公众平台/">公众平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习/">学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微信/">微信</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/旅游/">旅游</a></li></ul>
     </div>
   </div>
 
@@ -158,9 +852,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CodeIgniter/" style="font-size: 10px;">CodeIgniter</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JustWritting/" style="font-size: 10px;">JustWritting</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/NSRegularExpression/" style="font-size: 10px;">NSRegularExpression</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Twig/" style="font-size: 10px;">Twig</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a>
+      <a href="/tags/CodeIgniter/" style="font-size: 10px;">CodeIgniter</a> <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Dropbox/" style="font-size: 10px;">Dropbox</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JustWritting/" style="font-size: 10px;">JustWritting</a> <a href="/tags/Justwriting/" style="font-size: 12.5px;">Justwriting</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/tags/Markdown/" style="font-size: 12.5px;">Markdown</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/MySQLDump/" style="font-size: 10px;">MySQLDump</a> <a href="/tags/NSRegularExpression/" style="font-size: 10px;">NSRegularExpression</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/Sentry/" style="font-size: 12.5px;">Sentry</a> <a href="/tags/Twig/" style="font-size: 10px;">Twig</a> <a href="/tags/Wax/" style="font-size: 10px;">Wax</a> <a href="/tags/Web/" style="font-size: 10px;">Web</a> <a href="/tags/Xcode/" style="font-size: 10px;">Xcode</a> <a href="/tags/Zeal/" style="font-size: 10px;">Zeal</a> <a href="/tags/iOS/" style="font-size: 17.5px;">iOS</a> <a href="/tags/icns/" style="font-size: 10px;">icns</a> <a href="/tags/公众平台/" style="font-size: 10px;">公众平台</a> <a href="/tags/学习/" style="font-size: 10px;">学习</a> <a href="/tags/微信/" style="font-size: 10px;">微信</a> <a href="/tags/旅游/" style="font-size: 10px;">旅游</a>
     </div>
   </div>
 
@@ -169,7 +863,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li></ul>
     </div>
   </div>
 
@@ -177,7 +871,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -190,15 +884,15 @@
           </li>
         
           <li>
-            <a href="/2014/08/11/justwriting/">JustWritting 使用指南</a>
+            <a href="/2014/09/18/ios8-install/">iOS8升级，没有5.7G空间，也能升级！</a>
           </li>
         
           <li>
-            <a href="/2014/07/07/nsregularexpression-cheat-sheet-and-quick-reference/">NSRegularExpression Cheat Sheet and Quick Reference</a>
+            <a href="/2014/09/10/docker-nsenter/">使用nsenter进入Docker容器</a>
           </li>
         
           <li>
-            <a href="/2013/12/04/embedding-python/">Xcode5中Objective-c项目嵌入Python</a>
+            <a href="/2014/09/07/docker/">Docker 学习笔记 -- 入门</a>
           </li>
         
       </ul>
@@ -214,9 +908,20 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 hjue<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e72c5a01d3cbdc1eb6fc984a2ff5920e";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 </footer>
     </div>
     <nav id="mobile-nav">
