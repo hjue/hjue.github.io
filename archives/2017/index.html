@@ -3,18 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>使用shell生成icns文件 | 漫步人生路</title>
+  <title>Archives: 2017 | 漫步人生路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="正在做Mac版PHP手册，做图标的时候，发现在Developer tool里竟然没有Icon Composer了。这是什么情况？网上搜索了一下发现，自Xcode4.4以后就不再提供这个工具了。因为Xcode发展到4.4的时候，MBP已经出了15寸的Retain屏了。为了支持高清显示，苹果提供了一个工具iconutil，用来生成支持高清设备的图标。Apple的官方文档：High Resolution">
-<meta property="og:type" content="article">
-<meta property="og:title" content="使用shell生成icns文件">
-<meta property="og:url" content="http://yoursite.com/2014/02/15/make-icns/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="漫步人生路">
+<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
 <meta property="og:site_name" content="漫步人生路">
-<meta property="og:description" content="正在做Mac版PHP手册，做图标的时候，发现在Developer tool里竟然没有Icon Composer了。这是什么情况？网上搜索了一下发现，自Xcode4.4以后就不再提供这个工具了。因为Xcode发展到4.4的时候，MBP已经出了15寸的Retain屏了。为了支持高清显示，苹果提供了一个工具iconutil，用来生成支持高清设备的图标。Apple的官方文档：High Resolution">
-<meta property="og:updated_time" content="2016-10-31T04:40:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用shell生成icns文件">
-<meta name="twitter:description" content="正在做Mac版PHP手册，做图标的时候，发现在Developer tool里竟然没有Icon Composer了。这是什么情况？网上搜索了一下发现，自Xcode4.4以后就不再提供这个工具了。因为Xcode发展到4.4的时候，MBP已经出了15寸的Retain屏了。为了支持高清显示，苹果提供了一个工具iconutil，用来生成支持高清设备的图标。Apple的官方文档：High Resolution">
+<meta name="twitter:title" content="漫步人生路">
   
     <link rel="alternate" href="/atom.xml" title="漫步人生路" type="application/atom+xml">
   
@@ -63,95 +59,41 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-make-icns" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/02/15/make-icns/" class="article-date">
-  <time datetime="2014-02-14T16:00:00.000Z" itemprop="datePublished">2014-02-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      使用shell生成icns文件
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2017/01/16/positive/" class="archive-article-date">
+  <time datetime="2017-01-15T16:00:00.000Z" itemprop="datePublished">Jan 16</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/01/16/positive/">远离负能量</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>正在做<a href="https://github.com/hjue/php-manual-mac" target="_blank" rel="external">Mac版PHP手册</a>，做图标的时候，发现在Developer tool里竟然没有Icon Composer了。这是什么情况？网上搜索了一下发现，自Xcode4.4以后就不再提供这个工具了。因为Xcode发展到4.4的时候，MBP已经出了15寸的Retain屏了。为了支持高清显示，苹果提供了一个工具iconutil，用来生成支持高清设备的图标。<br>Apple的官方文档：<a href="https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Optimizing/Optimizing.html" target="_blank" rel="external">High Resolution Guidelines for OS X</a> </p>
-<h3 id="大体的制作过程是"><a href="#大体的制作过程是" class="headerlink" title="大体的制作过程是:"></a>大体的制作过程是:</h3><p>准备一个叫icon.iconset的文件夹，在里面放下面这些图标:<br>    icon_16x16.png<br>    icon_16x16@2x.png<br>    icon_32x32.png<br>    icon_32x32@2x.png<br>    icon_128x128.png<br>    icon_128x128@2x.png<br>    icon_256x256.png<br>    icon_256x256@2x.png<br>    icon_512x512.png<br>    icon_512x512@2x.png<br>然后用 <code>iconutil -c icns</code> 得想到要的icns文件。<br>整个过程可使用shell生成,准备好512x512的logo(icon.png)</p>
-<pre><code>#make_osx_icon icon.png
-for size in 16 32 128 256 512 ;
-do
-  echo $size;
-  sips -s format png -Z $size $1  --out icon.iconset/${1%.png}_${size}x${size}.png ;
-  retina=$(expr $size \* 2 )
-  echo $size@2x;
-  sips -s format png -Z $retina $1  --out icon.iconset/${1%.png}_${size}x${size}@2x.png ;
-done
-iconutil -c icns icon.iconset
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/02/15/make-icns/" data-id="cixzspzkn000rtffy5azc10nz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac/">Mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/icns/">icns</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2014/07/07/nsregularexpression-cheat-sheet-and-quick-reference/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          NSRegularExpression Cheat Sheet and Quick Reference
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2014/01/26/Compile-Zear-on-Mac-OS-X/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Compile Zeal on Mac OS X</div>
-    </a>
-  
-</nav>
-
-  
 </article>
-
   
-  <section id="comments">
-    <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-make-icns" data-title="使用shell生成icns文件" data-url="http://yoursite.com/2014/02/15/make-icns/"></div>
-    <!-- 多说评论框 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-    var duoshuoQuery = {short_name:'hjueorg'};
-      (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-      })();
-      </script>
-    <!-- 多说公共JS代码 end -->
-  </section>
-  </section>
+  
+    </div></section>
+  
+
+</section>
         
           <aside id="sidebar">
   
